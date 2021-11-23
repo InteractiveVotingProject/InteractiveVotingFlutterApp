@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
               margin: EdgeInsets.all(25),
               child: OutlinedButton(
                 child: Text(
-                  "Launch a quiz",
+                  "Launffch a quiz",
                   style: TextStyle(fontSize: 20.0),
                 ),
                 onPressed: () {},
