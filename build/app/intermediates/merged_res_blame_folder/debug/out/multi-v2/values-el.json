@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml",
             "map": [
                 {
                     "source": "/home/tithir/.gradle/caches/transforms-2/files-2.1/37c9812e6f3e3678d1d9ceef3b4c9f33/core-1.1.0/res/values-el/values-el.xml",
+=======
+            "outputFile": "/home/thomas/projectapp/InteractiveVotingFlutterApp/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml",
+            "map": [
+                {
+                    "source": "/home/thomas/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/res/values-el/values-el.xml",
+>>>>>>> main
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
