@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'CreateQuiz.dart';
+import 'ReadCode.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -34,7 +35,12 @@ class Homepage extends StatelessWidget {
                   'Answer',
                   style: TextStyle(fontSize: 20.0),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ReadCode()),
+                  );
+                },
               ),
             ),
           ]))),
