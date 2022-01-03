@@ -1,12 +1,16 @@
+# interactive_voting_flutter_app
 
-# Interactive voting (Flutter application)
+A new Flutter project.
 
-## A classical pedagogical tool
-![](https://lh6.googleusercontent.com/trKijtRsPJxgN7ftzlxpsN-HpCV09qN75ZaKfxbDiNOxEH2vwuWU2cbyuzAmQFFt4uAlS7qs4c4kIlc-SiGBLC3OikGtPqK8IVZSUEFvjV5tvTXKJp-qh6y4qnhdjimCTQ1zeFD2=s1600)
+## Getting Started
 
--   Interactive voting usually uses a plastic box, easily forgotten, costly
--   Most people have either an Android or an iOS phone
-    
-## Goal
--   Implement a Flutter application based on Firebase for data sharing
--   Use QR Codes and PIN numbers to connect to a series of questions and their answers
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

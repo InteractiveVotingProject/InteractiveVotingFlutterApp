@@ -2,6 +2,9 @@
 path.3=classes_0.dex
 path.2=classes_1.dex
 path.1=classes.dex
+#Mon Jan 03 16:22:38 CET 2022
+base.0=/home/thomas/projectapp/InteractiveVotingFlutterApp/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
 path.0=classes.dex
 base.3=/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
 base.2=/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/dex/debug/mergeLibDexDebug/classes_1.dex
