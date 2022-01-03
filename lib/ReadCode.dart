@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interactive_voting_flutter_app/Homepage.dart';
+import 'QRReader.dart';
 
 class ReadCode extends StatelessWidget {
   const ReadCode({Key? key}) : super(key: key);
@@ -13,6 +14,18 @@ class ReadCode extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(25),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const QRReader()),
+                  );
+                },
+                child: const Text('Use QR Reader'),
+              ),
+            ),
             Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,4 +1,4 @@
-#Mon Nov 29 15:10:09 CET 2021
+#Mon Jan 03 16:22:38 CET 2022
 base.0=/home/thomas/projectapp/InteractiveVotingFlutterApp/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

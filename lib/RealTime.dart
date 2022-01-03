@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-class HorizontalBarChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
-
-  HorizontalBarChart(this.seriesList, {required this.animate});
+class RealTime extends StatelessWidget {
+  final List<charts.Series<dynamic, String>> seriesList;
+  RealTime(this.seriesList);
 
   /// Creates a [BarChart] with sample data and no transition.
-  factory HorizontalBarChart.withSampleData() {
-    return new HorizontalBarChart(
+  factory RealTime.withSampleData() {
+    return new RealTime(
       _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
     );
   }
 
@@ -21,7 +17,6 @@ class HorizontalBarChart extends StatelessWidget {
     // For horizontal bar charts, set the [vertical] flag to false.
     return new charts.BarChart(
       seriesList,
-      animate: animate,
       vertical: false,
     );
   }
@@ -50,6 +45,5 @@ class HorizontalBarChart extends StatelessWidget {
 class OrdinalSales {
   final String year;
   final int sales;
-
   OrdinalSales(this.year, this.sales);
 }

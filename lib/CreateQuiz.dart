@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'GenerateQuiz.dart';
 
 class CreateQuiz extends StatelessWidget {
-  const CreateQuiz({Key? key}) : super(key: key);
+  CreateQuiz({Key? key}) : super(key: key);
+  final questionController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +19,7 @@ class CreateQuiz extends StatelessWidget {
                 children: <Widget>[
                   Text('Write your question', textAlign: TextAlign.left),
                   TextField(
-                    decoration: InputDecoration(hintText: 'Optional'),
+                    controller: questionController,
                   ),
                   SizedBox(height: 30),
                   Text('Select good answer(s) :', textAlign: TextAlign.left),

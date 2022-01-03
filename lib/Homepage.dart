@@ -23,7 +23,7 @@ class Homepage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const CreateQuiz()),
+                    MaterialPageRoute(builder: (context) => CreateQuiz()),
                   );
                 },
               ),
