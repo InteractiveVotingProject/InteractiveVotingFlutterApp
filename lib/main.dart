@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'realtime_db.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,4 +45,11 @@ class _MyAppState extends State<MyApp> {
           ]))),
     );
   }
+  Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  FirebaseApp firebaseApp = await Firebase.initializeApp();
+  runApp(MaterialApp(
+    home: realtime_db(),
+  ) );
+}
 }
