@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'GenerateQuiz.dart';
+import 'dart:math';
 
 class CreateQuiz extends StatelessWidget {
   CreateQuiz({Key? key}) : super(key: key);
   final questionController = TextEditingController();
+
+  final databaseRef = FirebaseDatabase.instance.reference();
+  final Future<FirebaseApp> future = Firebase.initializeApp();
+
+  void addData(String data) {
+    var rng = new Random();
+    var pin = rng.nextInt(900000) + 100000;
+    databaseRef
+        .push()
+        .set({'pin': pin, 'question': data, 'comment': 'A good season'});
+  }
+
+  void printFirebase() {
+    databaseRef.once().then((DataSnapshot snapshot) {
+      print('Data : ${snapshot.value}');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,6 +106,7 @@ class CreateQuiz extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
+                  addData(questionController.text);
                   Navigator.push(
                     context,
                     MaterialPageRoute(

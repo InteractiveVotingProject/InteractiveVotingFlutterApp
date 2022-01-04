@@ -26,6 +26,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "charts_common",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/charts_common-0.11.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "charts_flutter",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/charts_flutter-0.11.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/clock-1.1.0",
       "packageUri": "lib/",
@@ -82,7 +94,6 @@
     {
       "name": "firebase_database_web",
       "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database_web-0.1.2+1",
-      "rootUri": "file:///home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -105,8 +116,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "js",
       "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "logging",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/logging-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -131,6 +154,24 @@
     {
       "name": "plugin_platform_interface",
       "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "qr",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "qr_code_scanner",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "qr_flutter",
+      "rootUri": "file:///home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_flutter-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -195,7 +236,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-01-03T15:54:32.159606Z",
+  "generated": "2022-01-03T22:29:02.233966Z",
   "generator": "pub",
   "generatorVersion": "2.13.1"
 }

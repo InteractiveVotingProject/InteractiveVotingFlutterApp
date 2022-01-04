@@ -4,16 +4,16 @@
         "source": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
         "merged": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/app/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
