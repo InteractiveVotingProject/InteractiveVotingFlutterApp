@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'Homepage.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     title: 'Navigation Basics',
-    home: Homepage(),
+    home: Homepage(code: null),
   ));
 }

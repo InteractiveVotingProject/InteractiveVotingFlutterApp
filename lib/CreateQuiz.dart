@@ -12,9 +12,11 @@ class CreateQuiz extends StatelessWidget {
   final databaseRef = FirebaseDatabase.instance.reference();
   final Future<FirebaseApp> future = Firebase.initializeApp();
 
+  String pin = '';
+
   void addData(String data) {
     var rng = new Random();
-    var pin = rng.nextInt(900000) + 100000;
+    pin = (rng.nextInt(900000) + 100000).toString();
     databaseRef
         .push()
         .set({'pin': pin, 'question': data, 'comment': 'A good season'});
@@ -62,7 +64,10 @@ class CreateQuiz extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4.0),
                     constraints: BoxConstraints(minHeight: 36.0),
                     isSelected: isSelected,
-                    onPressed: (index) {},
+                    onPressed: (index) {
+                      fillColor:
+                      Color(0x222222).withOpacity(0.08);
+                    },
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -91,11 +96,13 @@ class CreateQuiz extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
-                  addData(questionController.text);
+                  addData(
+                    questionController.text,
+                  );
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const GenerateQuiz()),
+                        builder: (context) => GenerateQuiz(pin: pin)),
                   );
                 },
                 child: const Text('Generate'),

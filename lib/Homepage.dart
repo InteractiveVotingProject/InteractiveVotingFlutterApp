@@ -4,7 +4,8 @@ import 'ReadCode.dart';
 // import 'dbDetails.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+  Homepage({Key? key, this.code}) : super(key: key);
+  final String? code;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,9 +41,18 @@ class Homepage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ReadCode()),
+                    MaterialPageRoute(builder: (context) => ReadCode()),
                   );
                 },
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Session ID is ${code}', textAlign: TextAlign.left),
+                ],
               ),
             ),
           ]))),

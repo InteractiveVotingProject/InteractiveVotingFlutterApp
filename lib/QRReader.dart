@@ -59,9 +59,8 @@ class _QRReader extends State<QRReader> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AnswerQuiz(
-                                        quizId: 'test',
-                                      )),
+                                  builder: (context) =>
+                                      Homepage(code: result!.code)),
                             );
                           },
                           child: const Text('Access Quizz'),

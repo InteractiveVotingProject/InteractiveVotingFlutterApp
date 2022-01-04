@@ -6,7 +6,8 @@ Random random = new Random();
 String randomNumber = random.nextInt(999999).toString();
 
 class GenerateQuiz extends StatelessWidget {
-  const GenerateQuiz({Key? key}) : super(key: key);
+  const GenerateQuiz({Key? key, this.pin}) : super(key: key);
+  final String? pin;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,13 +21,13 @@ class GenerateQuiz extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Code is ' + randomNumber, textAlign: TextAlign.left),
+                  Text('Code is ${pin}', textAlign: TextAlign.left),
                 ],
               ),
             ),
             Container(
                 child: QrImage(
-              data: randomNumber,
+              data: pin as String,
               version: QrVersions.auto,
               size: 320,
             ))
