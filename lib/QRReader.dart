@@ -15,6 +15,8 @@ class QRReader extends StatefulWidget {
 }
 
 class _QRReader extends State<QRReader> {
+  final quizIDController = TextEditingController();
+  int myVar = 1;
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -58,7 +60,9 @@ class _QRReader extends State<QRReader> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Homepage()),
+                                  builder: (context) => AnswerQuiz(
+                                        quizId: 'test',
+                                      )),
                             );
                           },
                           child: const Text('Access Quizz'),

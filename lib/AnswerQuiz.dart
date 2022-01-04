@@ -8,7 +8,7 @@ class AnswerQuiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('test ${quizId}'),
+        title: Text('test $quizId'),
       ),
     );
   }

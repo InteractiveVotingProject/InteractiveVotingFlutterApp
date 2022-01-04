@@ -4,6 +4,7 @@ import 'GenerateQuiz.dart';
 class CreateQuiz extends StatelessWidget {
   CreateQuiz({Key? key}) : super(key: key);
   final questionController = TextEditingController();
+  final isSelected = <bool>[false, false, false, false, false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,56 +31,40 @@ class CreateQuiz extends StatelessWidget {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                  ElevatedButton(
-                    child: Text("1"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("2"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("3"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("4"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("5"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 5),
-                ])),
-            Container(
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                  ElevatedButton(
-                    child: Text("6"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("7"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("8"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
-                  ElevatedButton(
-                    child: Text("9"),
-                    onPressed: null,
-                  ),
-                  SizedBox(width: 10),
+                  ToggleButtons(
+                    color: Colors.black.withOpacity(0.60),
+                    selectedColor: Color(0xFF6200EE),
+                    selectedBorderColor: Color(0xFF6200EE),
+                    fillColor: Color(0xFF6200EE).withOpacity(0.08),
+                    splashColor: Color(0xFF6200EE).withOpacity(0.12),
+                    hoverColor: Color(0xFF6200EE).withOpacity(0.04),
+                    borderRadius: BorderRadius.circular(4.0),
+                    constraints: BoxConstraints(minHeight: 36.0),
+                    isSelected: isSelected,
+                    onPressed: (index) {},
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text('1'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text('2'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text('3'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text('4'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text('5'),
+                      ),
+                    ],
+                  )
                 ])),
             Container(
               margin: EdgeInsets.all(25),
