@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'GenerateQuiz.dart';
 
 class AnswerQuiz extends StatelessWidget {
   final String quizId;
@@ -8,7 +7,7 @@ class AnswerQuiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('test $quizId'),
+        title: Text('?????????????'),
       ),
     );
   }
