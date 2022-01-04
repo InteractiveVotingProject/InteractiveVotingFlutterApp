@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'dart:math';
+
+Random random = new Random();
+String randomNumber = random.nextInt(999999).toString();
 
 class GenerateQuiz extends StatelessWidget {
   const GenerateQuiz({Key? key}) : super(key: key);
@@ -16,13 +20,13 @@ class GenerateQuiz extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Code is 154328', textAlign: TextAlign.left),
+                  Text('Code is ' + randomNumber, textAlign: TextAlign.left),
                 ],
               ),
             ),
             Container(
                 child: QrImage(
-              data: '154328',
+              data: randomNumber,
               version: QrVersions.auto,
               size: 320,
             ))
