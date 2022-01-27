@@ -21,13 +21,20 @@ It should also be noted that a version allowing accessibility to visually impair
 ## Application Look and Feel
 
 The application look and feel with the fearure implementation.
+<div align="center">
 * Home Page And Create Quiz:
 
-![](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
-![JOIN QUIZ MANUALLY](/images/JoinQuiz_Manually.PNG "Join Quiz Manually")
-![JOIN QUIZ SCANNING QR](/images/JoinQuiz_QR.PNG "Join Quiz scanning QR")
-![CRUD OPERATION FIREBASE](/images/firebase.PNG "CRUD Operation Firebase")
+![HOMEPAGE AND CREATE QUIZ](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
+* Join Quiz Manually
 
+![JOIN QUIZ MANUALLY](/images/JoinQuiz_Manually.PNG "Join Quiz Manually")
+* Join Quiz scanning QR
+
+![JOIN QUIZ SCANNING QR](/images/JoinQuiz_QR.PNG "Join Quiz scanning QR")
+* CRUD Operation Firebase
+
+![CRUD OPERATION FIREBASE](/images/firebase.PNG "CRUD Operation Firebase")
+</div>
 
 ## References
 
