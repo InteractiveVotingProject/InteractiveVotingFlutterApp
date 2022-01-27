@@ -26,7 +26,7 @@ The following wireframes are the schema which has been refered to while developm
 
 ## Application Look and Feel
 
-The application look and feel with the fearure implementation.
+The application look and feel with the feature implementation.
 <div align="center">
  
 ![HOMEPAGE AND CREATE QUIZ](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
