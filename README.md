@@ -21,7 +21,8 @@ It should also be noted that a version allowing accessibility to visually impair
 ## Application Look and Feel
 
 The application look and feel with the fearure implementation.
-![HOME PAGE AND CREATE QUIZ](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
+* Home Page And Create Quiz:
+![](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
 ![JOIN QUIZ MANUALLY](/images/JoinQuiz_Manually.PNG "Join Quiz Manually")
 ![JOIN QUIZ SCANNING QR](/images/JoinQuiz_QR.PNG "Join Quiz scanning QR")
 ![CRUD OPERATION FIREBASE](/images/firebase.PNG "CRUD Operation Firebase")
