@@ -16,24 +16,32 @@ It should also be noted that a version allowing accessibility to visually impair
 
 ## Wireframes
 
+The following wireframes are the schema which has been refered to while development of the application.
+<div align="center">
+ 
 ![WIREFRAME INTERACTIVE VOTING APP](/images/Wireframes.PNG "Wireframe for the application")
+#### Wireframe Interactive Voting Application
+ 
+</div>
 
 ## Application Look and Feel
 
 The application look and feel with the fearure implementation.
 <div align="center">
-* Home Page And Create Quiz:
-
+ 
 ![HOMEPAGE AND CREATE QUIZ](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
-* Join Quiz Manually
+#### Home Page And Create Quiz
+ 
 
 ![JOIN QUIZ MANUALLY](/images/JoinQuiz_Manually.PNG "Join Quiz Manually")
-* Join Quiz scanning QR
+#### Join Quiz Manually
+
 
 ![JOIN QUIZ SCANNING QR](/images/JoinQuiz_QR.PNG "Join Quiz scanning QR")
-* CRUD Operation Firebase
+#### Join Quiz scanning QR
 
 ![CRUD OPERATION FIREBASE](/images/firebase.PNG "CRUD Operation Firebase")
+#### CRUD Operation Firebase
 </div>
 
 ## References
