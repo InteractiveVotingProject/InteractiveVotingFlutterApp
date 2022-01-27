@@ -3,7 +3,7 @@
 The multi-platform interactive voting application in the form of a multiple-choice questionnaire (MCQ) is being developed in Flutter with Firebase as the backend.
 
 # Author
-## Master 2 Computer Science for Aerospace, University Toulouse III - Paul Sabatier 2021-2022. 
+### Master 2 Computer Science for Aerospace, University Toulouse III - Paul Sabatier 2021-2022. 
 BENCHORA Mohamed Anime, SAHA Tithir Kumar, MARGUET Thomas, DUGGAL Pamit
 
 ## Background
@@ -14,13 +14,24 @@ Since the application is available in both French and English locale. The applic
 
 It should also be noted that a version allowing accessibility to visually impaired students is under study so that all students can study equally and pass their exams successfully.
 
+## Wireframes
+
+![WIREFRAME INTERACTIVE VOTING APP](/images/Wireframes.PNG "Wireframe for the application")
+
+## Application Look and Feel
+
+The application look and feel with the fearure implementation.
+![HOME PAGE AND CREATE QUIZ](/images/HomePage_CreateQuiz.PNG "Home Page and Create Quiz")
+![JOIN QUIZ MANUALLY](/images/JoinQuiz_Manually.PNG "Join Quiz Manually")
+![JOIN QUIZ SCANNING QR](/images/JoinQuiz_QR.PNG "Join Quiz scanning QR")
+![CRUD OPERATION FIREBASE](/images/firebase.PNG "CRUD Operation Firebase")
+
 
 ## References
 
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
-
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
