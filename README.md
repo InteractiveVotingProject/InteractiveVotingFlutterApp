@@ -3,7 +3,7 @@
 The multi-platform interactive voting application in the form of a multiple-choice questionnaire (MCQ) is being developed in Flutter with Firebase as the backend.
 
 # Author
-Master 2 Computer Science for Aerospace, University Toulouse III - Paul Sabatier 2021-2022.
+## Master 2 Computer Science for Aerospace, University Toulouse III - Paul Sabatier 2021-2022. 
 BENCHORA Mohamed Anime, SAHA Tithir Kumar, MARGUET Thomas, DUGGAL Pamit
 
 ## Background
@@ -15,7 +15,7 @@ Since the application is available in both French and English locale. The applic
 It should also be noted that a version allowing accessibility to visually impaired students is under study so that all students can study equally and pass their exams successfully.
 
 
-## Getting Started
+## References
 
 This project is a starting point for a Flutter application.
 
