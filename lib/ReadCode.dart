@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:interactive_voting_flutter_app/Homepage.dart';
 import 'QRReader.dart';
+import 'AnswerQuiz.dart';
 
 class ReadCode extends StatelessWidget {
-  const ReadCode({Key? key}) : super(key: key);
+  ReadCode({Key? key}) : super(key: key);
+  final otpController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,6 +35,7 @@ class ReadCode extends StatelessWidget {
                 children: <Widget>[
                   Text('Enter code manually', textAlign: TextAlign.left),
                   TextField(
+                    controller: otpController,
                     decoration: InputDecoration(hintText: 'Optional'),
                   ),
                   SizedBox(height: 30),
@@ -44,7 +48,7 @@ class ReadCode extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Homepage()),
+                    MaterialPageRoute(builder: (context) => AnswerQuiz(quizId: otpController.text)),
                   );
                 },
                 child: const Text('Generate'),

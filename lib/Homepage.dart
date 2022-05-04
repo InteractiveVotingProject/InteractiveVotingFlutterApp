@@ -40,7 +40,7 @@ class Homepage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ReadCode()),
+                    MaterialPageRoute(builder: (context) => ReadCode()),
                   );
                 },
               ),
