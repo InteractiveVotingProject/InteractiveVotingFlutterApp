@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,9 +17,20 @@ class CreateQuiz extends StatelessWidget {
   final Future<FirebaseApp> future = Firebase.initializeApp();
 
   void addData(String data) {
+    //print('test' + databaseRef.child("811280").toString());
     databaseRef
         .child(pin)
-        .set({'pin': pin, 'question': data, 'comment': 'A good season'});
+        .child("question")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      while (dataSnapshot.value.toString() != 'null') {
+        pin = (rng.nextInt(900000) + 100000).toString();
+      }
+      //print('here ' + dataSnapshot.value.toString());
+    });
+    databaseRef
+        .child(pin)
+        .set({ 'question': data, 'comment': 'A good season'});
   }
 
   void printFirebase() {
@@ -111,7 +124,7 @@ class CreateQuiz extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>  GenerateQuiz(codeId : pin)),
+                        builder: (context) => GenerateQuiz(codeId: pin)),
                   );
                 },
                 child: const Text('Generate'),
