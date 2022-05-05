@@ -6,7 +6,9 @@ Random random = new Random();
 String randomNumber = random.nextInt(999999).toString();
 
 class GenerateQuiz extends StatelessWidget {
-  const GenerateQuiz({Key? key}) : super(key: key);
+    final String codeId;
+
+  const GenerateQuiz({Key? key, required this.codeId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +22,7 @@ class GenerateQuiz extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Code is ' + randomNumber, textAlign: TextAlign.left),
+                  Text('Code is ' + codeId, textAlign: TextAlign.left),
                 ],
               ),
             ),

@@ -4,6 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'GenerateQuiz.dart';
 import 'dart:math';
 
+Random rng = new Random();
+String pin = (rng.nextInt(900000) + 100000).toString();
+
 class CreateQuiz extends StatelessWidget {
   CreateQuiz({Key? key}) : super(key: key);
   final questionController = TextEditingController();
@@ -12,10 +15,8 @@ class CreateQuiz extends StatelessWidget {
   final Future<FirebaseApp> future = Firebase.initializeApp();
 
   void addData(String data) {
-    var rng = new Random();
-    var pin = rng.nextInt(900000) + 100000;
     databaseRef
-        .push()
+        .child(pin)
         .set({'pin': pin, 'question': data, 'comment': 'A good season'});
   }
 
@@ -110,7 +111,7 @@ class CreateQuiz extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const GenerateQuiz()),
+                        builder: (context) =>  GenerateQuiz(codeId : pin)),
                   );
                 },
                 child: const Text('Generate'),

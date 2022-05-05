@@ -6,8 +6,8 @@ import 'AnswerQuiz.dart';
 class ReadCode extends StatelessWidget {
   ReadCode({Key? key}) : super(key: key);
   final otpController = TextEditingController();
+  
 
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
@@ -48,7 +48,7 @@ class ReadCode extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AnswerQuiz(quizId: otpController.text)),
+                    MaterialPageRoute(builder: (context) => AnswerQuiz(quizId :otpController.text)),
                   );
                 },
                 child: const Text('Generate'),
@@ -59,4 +59,6 @@ class ReadCode extends StatelessWidget {
       ),
     ));
   }
+
+
 }
