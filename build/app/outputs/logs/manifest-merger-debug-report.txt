@@ -7,6 +7,7 @@ INJECTED from /home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/ap
 MERGED from /home/tithir/StudioProjects/InteractiveVotingFlutterApp/android/app/src/main/AndroidManifest.xml:1:1-42:12
 MERGED from [:firebase_database] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
+MERGED from [:device_info_plus] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/device_info_plus/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:qr_code_scanner] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/qr_code_scanner/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-database:20.0.2] /home/tithir/.gradle/caches/transforms-2/files-2.1/7da20df1101ebfdb3b594d710dd4625b/jetified-firebase-database-20.0.2/AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] /home/tithir/.gradle/caches/transforms-2/files-2.1/18bc7324fca40d658986a6e2d6f5b04d/jetified-firebase-appcheck-interop-16.0.0-beta02/AndroidManifest.xml:15:1-26:12
@@ -148,6 +149,8 @@ MERGED from [:firebase_database] /home/tithir/StudioProjects/InteractiveVotingFl
 MERGED from [:firebase_database] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:device_info_plus] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/device_info_plus/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:device_info_plus] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/device_info_plus/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:qr_code_scanner] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/qr_code_scanner/intermediates/library_manifest/debug/AndroidManifest.xml:6:5-8:67
 MERGED from [:qr_code_scanner] /home/tithir/StudioProjects/InteractiveVotingFlutterApp/build/qr_code_scanner/intermediates/library_manifest/debug/AndroidManifest.xml:6:5-8:67
 MERGED from [com.google.firebase:firebase-database:20.0.2] /home/tithir/.gradle/caches/transforms-2/files-2.1/7da20df1101ebfdb3b594d710dd4625b/jetified-firebase-database-20.0.2/AndroidManifest.xml:19:5-21:41

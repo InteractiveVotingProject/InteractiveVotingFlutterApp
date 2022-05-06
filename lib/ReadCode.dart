@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:interactive_voting_flutter_app/Homepage.dart';
 import 'QRReader.dart';
 import 'AnswerQuiz.dart';
 

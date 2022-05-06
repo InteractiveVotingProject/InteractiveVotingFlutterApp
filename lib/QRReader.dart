@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:interactive_voting_flutter_app/Homepage.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'AnswerQuiz.dart';
 
 class QRReader extends StatefulWidget {
   const QRReader({Key? key}) : super(key: key);
