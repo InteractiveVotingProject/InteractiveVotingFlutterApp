@@ -23,6 +23,8 @@ class _AnswerQuiz extends State<AnswerQuiz> {
   String ch2 = "";
   String ch3 = "";
   String ch4 = "";
+  String rans = "";
+  String cans = "";
 
   _AnswerQuiz(this.quizId);
 
@@ -77,18 +79,44 @@ class _AnswerQuiz extends State<AnswerQuiz> {
         .once()
         .then((DataSnapshot dataSnapshot) {
       print(dataSnapshot.value.toString());
-
       setState(() {
         ch4 = dataSnapshot.value.toString();
       });
     });
-    String choices = "\n1. "+ ch1 +"\n2. "+ ch2+"\n3. " + ch3 + "\n4. " +ch4;
-    return val+"\n"+ choices;
+    databaseRef
+        .child(qId)
+        .child("revealAnswer")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+      setState(() {
+        rans = dataSnapshot.value.toString();
+      });
+    });
+
+    if (rans == 'true') {
+      databaseRef
+          .child(qId)
+          .child("correctAnswer")
+          .once()
+          .then((DataSnapshot dataSnapshot) {
+        print(dataSnapshot.value.toString());
+        setState(() {
+          cans = dataSnapshot.value.toString();
+        });
+      });
+    }
+
+    //String choices =
+    //  "\n1. " + ch1 + "\n2. " + ch2 + "\n3. " + ch3 + "\n4. " + ch4;
+    return val + "\n";
   }
+
   Future<void> addAnswer(String pin, String ans) async {
     String? deviceId = await _getId();
     databaseRef.child(pin).child("Answers").set({deviceId: ans});
   }
+
   Future<String?> _getId() async {
     var deviceInfo = DeviceInfoPlugin();
     if (Platform.isIOS) {
@@ -100,6 +128,23 @@ class _AnswerQuiz extends State<AnswerQuiz> {
       return androidDeviceInfo.androidId; // unique ID on Android
     }
   }
+
+  //Checkbox implementation
+  bool valueCb1 = false;
+  bool valueCb2 = false;
+  bool valueCb3 = false;
+  bool valueCb4 = false;
+
+  String getAnswers() {
+    String ans = "";
+    if (valueCb1) ans += "1;";
+    if (valueCb2) ans += "2;";
+    if (valueCb3) ans += "3;";
+    if (valueCb4) ans += "4;";
+
+    return ans;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,21 +158,77 @@ class _AnswerQuiz extends State<AnswerQuiz> {
               margin: EdgeInsets.all(25),
             ),
             Text("Question : " + fetchData(quizId) + '\n'),
-            TextField(
-              maxLength: 300,
-              maxLines: 3,
-              decoration: InputDecoration(
-                contentPadding: const EdgeInsets.symmetric(vertical: 30),
-                border: OutlineInputBorder(),
-                hintText: 'Write your answers',
-              ),
-              controller: answerController,
-            ),
+            Container(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    textDirection: TextDirection.ltr,
+                    children: <Widget>[
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        ElevatedButton(
+                          child: Text("1. " + ch1),
+                          onPressed: null,
+                        ),
+                        Checkbox(
+                          value: this.valueCb1,
+                          onChanged: (bool? valueCb1) {
+                            setState(() {
+                              this.valueCb1 = valueCb1!;
+                            });
+                          },
+                        ),
+                        ElevatedButton(
+                          child: Text("2. " + ch2),
+                          onPressed: null,
+                        ),
+                        Checkbox(
+                          value: this.valueCb2,
+                          onChanged: (bool? valueCb2) {
+                            setState(() {
+                              this.valueCb2 = valueCb2!;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Row(
+                      children: <Widget>[
+                        ElevatedButton(
+                          child: Text("3. " + ch3),
+                          onPressed: null,
+                        ),
+                        Checkbox(
+                          value: this.valueCb3,
+                          onChanged: (bool? valueCb3) {
+                            setState(() {
+                              this.valueCb3 = valueCb3!;
+                            });
+                          },
+                        ),
+                        ElevatedButton(
+                          child: Text("4. " + ch4),
+                          onPressed: null,
+                        ),
+                        Checkbox(
+                          value: this.valueCb4,
+                          onChanged: (bool? valueCb4) {
+                            setState(() {
+                              this.valueCb4 = valueCb4!;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ])),
             Container(
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
-                  addAnswer(quizId, answerController.text);
+                  addAnswer(quizId, getAnswers());
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(
@@ -137,6 +238,9 @@ class _AnswerQuiz extends State<AnswerQuiz> {
                 child: const Text('Submit Answer'),
               ),
             ),
+            Container(
+              child: Text('The correct answers are ' + cans),
+            )
           ],
         ),
       ),

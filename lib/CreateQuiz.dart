@@ -7,16 +7,15 @@ import 'dart:math';
 Random rng = new Random();
 String pin = (rng.nextInt(900000) + 100000).toString();
 
-// ignore: must_be_immutable
-class CreateQuiz extends StatelessWidget {
-//   //final String quizId;
-//   CreateQuiz({Key? key}) : super(key: key);
+class CreateQuiz extends StatefulWidget {
+  //final String quizId;
+  CreateQuiz({Key? key}) : super(key: key);
 
-//   @override
-//   State<StatefulWidget> createState() => _CreateQuiz();
-// }
+  @override
+  State<StatefulWidget> createState() => _CreateQuiz();
+}
 
-// class _CreateQuiz extends State<CreateQuiz> {
+class _CreateQuiz extends State<CreateQuiz> {
   final questionController = TextEditingController();
   final mcqController = TextEditingController();
   final mcqController2 = TextEditingController();
@@ -27,7 +26,7 @@ class CreateQuiz extends StatelessWidget {
   final Future<FirebaseApp> future = Firebase.initializeApp();
 
   void addData(String question, String choice1, String choice2, String choice3,
-      String choice4) {
+      String choice4, String corrAns) {
     //print('test' + databaseRef.child("811280").toString());
     databaseRef
         .child(pin)
@@ -45,11 +44,25 @@ class CreateQuiz extends StatelessWidget {
       'choice2': choice2,
       'choice3': choice3,
       'choice4': choice4,
-      'correctAnswer': 'A good season'
+      'correctAnswer': corrAns,
+      'revealAnswer': false
     });
   }
 
-  bool value = false;
+  bool valueCb1 = false;
+  bool valueCb2 = false;
+  bool valueCb3 = false;
+  bool valueCb4 = false;
+
+  String getCorrAns() {
+    String correctAns = "";
+    if (valueCb1) correctAns += "1;";
+    if (valueCb2) correctAns += "2;";
+    if (valueCb3) correctAns += "3;";
+    if (valueCb4) correctAns += "4;";
+
+    return correctAns;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,36 +97,41 @@ class CreateQuiz extends StatelessWidget {
                         ElevatedButton(
                           child: Text("1"),
                           onPressed: null,
-                          // () {
-                          //   //mcqController.text;
-                          // },
                         ),
                         SizedBox(
-                            width: 120,
+                            width: 80,
                             child: TextField(
                               controller: mcqController,
                               decoration:
                                   new InputDecoration(hintText: "Choice"),
                             )),
+                        Checkbox(
+                          value: this.valueCb1,
+                          onChanged: (bool? valueCb1) {
+                            setState(() {
+                              this.valueCb1 = valueCb1!;
+                            });
+                          },
+                        ),
                         ElevatedButton(
                           child: Text("2"),
                           onPressed: null,
                         ),
                         SizedBox(
-                            width: 120,
+                            width: 80,
                             child: TextField(
                               controller: mcqController2,
                               decoration:
                                   new InputDecoration(hintText: "Choice"),
                             )),
-                        // Checkbox(
-                        //   value: this.value,
-                        //   onChanged: (bool? value) {
-                        //     setState(() {
-                        //       this.value = value!;
-                        //     });
-                        //   },
-                        // ),
+                        Checkbox(
+                          value: this.valueCb2,
+                          onChanged: (bool? valueCb2) {
+                            setState(() {
+                              this.valueCb2 = valueCb2!;
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -125,71 +143,55 @@ class CreateQuiz extends StatelessWidget {
                           onPressed: null,
                         ),
                         SizedBox(
-                            width: 120,
+                            width: 80,
                             child: TextField(
                               controller: mcqController3,
                               decoration:
                                   new InputDecoration(hintText: "Choice"),
                             )),
+                        Checkbox(
+                          value: this.valueCb3,
+                          onChanged: (bool? valueCb3) {
+                            setState(() {
+                              this.valueCb3 = valueCb3!;
+                            });
+                          },
+                        ),
                         ElevatedButton(
                           child: Text("4"),
                           onPressed: null,
                         ),
                         SizedBox(
-                            width: 120,
+                            width: 80,
                             child: TextField(
                               controller: mcqController4,
                               decoration:
                                   new InputDecoration(hintText: "Choice"),
                             )),
+                        Checkbox(
+                          value: this.valueCb4,
+                          onChanged: (bool? valueCb4) {
+                            setState(() {
+                              this.valueCb4 = valueCb4!;
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
-                  // Container(
-                  //   child: Row(
-                  //     children: <Widget>[
-                  //       ElevatedButton(
-                  //         child: Text("3"),
-                  //         onPressed: null,
-                  //       ),
-                  //       SizedBox(
-                  //           width: 250,
-                  //           child: TextField(
-                  //             decoration: new InputDecoration(
-                  //                 hintText: "Enter Choice 3"),
-                  //             controller: mcqController3,
-                  //           )),
-                  //     ],
-                  //   ),
-                  // ),
-                  // Container(
-                  //   child: Row(
-                  //     children: <Widget>[
-                  //       ElevatedButton(
-                  //         child: Text("4"),
-                  //         onPressed: null,
-                  //       ),
-                  //       SizedBox(
-                  //           width: 200,
-                  //           child: TextField(
-                  //             decoration: new InputDecoration(
-                  //                 hintText: "Enter Choice 4"),
-                  //             controller: mcqController4,
-                  //           )),
-                  //     ],
-                  //   ),
-                  // ),
                 ])),
             Container(
               margin: EdgeInsets.all(20),
               child: ElevatedButton(
                 onPressed: () {
+                  String corrAns = getCorrAns();
                   addData(
                       questionController.text,
                       mcqController.text,
                       mcqController2.text,
                       mcqController3.text,
-                      mcqController4.text);
+                      mcqController4.text,
+                      corrAns);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
