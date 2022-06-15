@@ -114,7 +114,10 @@ class _AnswerQuiz extends State<AnswerQuiz> {
 
   Future<void> addAnswer(String pin, String ans) async {
     String? deviceId = await _getId();
-    databaseRef.child(pin).child("Answers").set({deviceId: ans});
+    databaseRef.child(pin).child("answers").set({deviceId: ans});
+    databaseRef.child(deviceId.toString()).set({
+      pin: "Q:"+val + ";Choice:" + ch1 + "," + ch2 + "," + ch3 + "," + ch4 + ";Sol:" + cans
+    });
   }
 
   Future<String?> _getId() async {

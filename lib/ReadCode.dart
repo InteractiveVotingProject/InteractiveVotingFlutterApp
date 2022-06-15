@@ -50,7 +50,7 @@ class ReadCode extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => AnswerQuiz(quizId :otpController.text)),
                   );
                 },
-                child: const Text('Generate'),
+                child: const Text('Go to Quiz'),
               ),
             )
           ],

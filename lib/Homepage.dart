@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interactive_voting_flutter_app/History.dart';
 import 'CreateQuiz.dart';
 import 'ReadCode.dart';
 // import 'dbDetails.dart';
@@ -41,6 +42,21 @@ class Homepage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ReadCode()),
+                  );
+                },
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: OutlinedButton(
+                child: Text(
+                  'Previous History',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => History()),
                   );
                 },
               ),
