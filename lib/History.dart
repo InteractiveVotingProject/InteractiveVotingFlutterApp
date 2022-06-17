@@ -21,18 +21,13 @@ class _History extends State<History> {
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   String val = "";
-  String ch1 = "";
-  String ch2 = "";
-  String ch3 = "";
-  String ch4 = "";
-  String rans = "";
-  String cans = "";
+
 
   // _History(this.quizId);
 
   Future<String> fetchHis() async {
     String? deviceId = await _getId();
-
+   val = "";
     databaseRef
         .child(deviceId.toString())
         .once()
@@ -42,8 +37,8 @@ class _History extends State<History> {
       dataSnapshot.value.forEach((key, values) {
         print(values.toString());
         setState(() {
-          val = (key.toString() + ':' + values.toString());
-          print(val);
+          val += (key.toString() + ':' + values.toString()+'\n\n');
+          //print(val);
         });
       });
     });
@@ -69,7 +64,7 @@ class _History extends State<History> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Previous Participaction Using This Device'),
+        title: Text('History'),
       ),
       body: Center(
         child: Column(
@@ -77,7 +72,7 @@ class _History extends State<History> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("History participation for Device : " + '\n'),
+            Text("History participation for this device " + '\n'),
             Container(
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
@@ -88,7 +83,7 @@ class _History extends State<History> {
               ),
             ),
             Container(
-              child: Text('Previously answered questions are' + '\n' + val+'\n'),
+              child: Text('Previously answered questions are,' + '\n\n' + val+'\n'),
             ),
             Container(
               margin: EdgeInsets.all(25),
