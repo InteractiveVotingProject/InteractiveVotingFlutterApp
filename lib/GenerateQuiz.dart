@@ -1,7 +1,10 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:interactive_voting_flutter_app/CreateQuiz.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'dart:math';
+import 'ShowChart.dart';
+
 
 Random random = new Random();
 String randomNumber = random.nextInt(999999).toString();
@@ -9,7 +12,6 @@ String randomNumber = random.nextInt(999999).toString();
 class GenerateQuiz extends StatelessWidget {
   final String codeId;
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
-
 
   GenerateQuiz({Key? key, required this.codeId}) : super(key: key);
   @override
@@ -39,28 +41,18 @@ class GenerateQuiz extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
-                  // databaseRef
-                  //     .child(codeId)
-                  //     .child("revealAnswer")
-                  //     .once()
-                  //     .then((DataSnapshot dataSnapshot) {
-                  //   print(dataSnapshot.value.toString());
-
-                  //   setState(() {
-                  //     val = dataSnapshot.value.toString();
-                  //   });
-                    databaseRef.child(codeId).update({"revealAnswer": true});
-                  
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => const GenerateQuiz()),
-                  // );
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ShowChart(codeId: codeId)),
+                  );
                 },
-                child: const Text('Reveal Answers'),
+                child: const Text('Show Stats'),
               ),
             ),
           ]),
         ));
   }
 }
+
+

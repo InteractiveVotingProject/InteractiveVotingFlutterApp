@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:interactive_voting_flutter_app/ShowChart.dart';
 import 'dart:io';
+import 'package:pie_chart/pie_chart.dart';
 
 class AnswerQuiz extends StatefulWidget {
   final String quizId;
+
   const AnswerQuiz({Key? key, required this.quizId}) : super(key: key);
 
   @override
@@ -14,9 +17,19 @@ class AnswerQuiz extends StatefulWidget {
 
 class _AnswerQuiz extends State<AnswerQuiz> {
   final String quizId;
-//  _AnswerQuiz(this.quizId);
   final answerController = TextEditingController();
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
+
+  Map<String, double> dataMap = <String, double>{"No Answers Yet": 0};
+
+  final colorList = <Color>[
+    Colors.greenAccent,
+    Colors.orangeAccent,
+    Colors.lightBlueAccent,
+    Colors.redAccent,
+    Colors.yellowAccent,
+    Colors.deepPurpleAccent
+  ];
 
   String val = "";
   String ch1 = "";
@@ -28,7 +41,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
 
   _AnswerQuiz(this.quizId);
 
-  fetchData(String qId) {
+  fetchQuestion(String qId) {
     databaseRef
         .child(qId)
         .child("question")
@@ -107,17 +120,62 @@ class _AnswerQuiz extends State<AnswerQuiz> {
       });
     }
 
-    //String choices =
-    //  "\n1. " + ch1 + "\n2. " + ch2 + "\n3. " + ch3 + "\n4. " + ch4;
     return val + "\n";
+  }
+
+  fetchAnswers(String qId) {
+    var ans = [];
+    databaseRef
+        .child(qId)
+        .child("answers")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      dataSnapshot.value.forEach((key, values) {
+        print(values.toString());
+        setState(() {
+          ans.add(values.toString());
+          print('The length' + ans.length.toString());
+        });
+        //int i = 1;
+        var counts = new Map();
+
+        ans.forEach((element) {
+          if (!counts.containsKey(element)) {
+            //i = 1.0;
+            counts[element] = 1;
+          } else {
+            //i += 1;
+            counts[element] += 1;
+          }
+        });
+        dataMap.clear();
+        counts.forEach((k, v) {
+          dataMap[k] = v + .0;
+        });
+        print("its dataMap for PIe chart");
+        print(dataMap);
+      });
+    });
+
+    return "\n";
   }
 
   Future<void> addAnswer(String pin, String ans) async {
     String? deviceId = await _getId();
-    databaseRef.child(pin).child("answers").set({deviceId: ans});
-    databaseRef.child(deviceId.toString()).set({
-      pin: "Q:"+val + ";Choice:" + ch1 + "," + ch2 + "," + ch3 + "," + ch4 + ";Sol:" + cans
-    });
+    databaseRef.child(pin).child("answers").child(deviceId.toString()).set(ans);
+    // databaseRef.child(pin).child("answers").set({deviceId: ans});
+    databaseRef.child(deviceId.toString()).child(pin.toString()).set("Q:" +
+        val +
+        ";Choice:" +
+        ch1 +
+        "," +
+        ch2 +
+        "," +
+        ch3 +
+        "," +
+        ch4 +
+        ";Sol:" +
+        cans);
   }
 
   Future<String?> _getId() async {
@@ -160,7 +218,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("Question : " + fetchData(quizId) + '\n'),
+            Text("Question : " + fetchQuestion(quizId) + '\n'),
             Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -232,18 +290,26 @@ class _AnswerQuiz extends State<AnswerQuiz> {
               child: ElevatedButton(
                 onPressed: () {
                   addAnswer(quizId, getAnswers());
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => const GenerateQuiz()),
-                  // );
+                  fetchAnswers(quizId);
                 },
                 child: const Text('Submit Answer'),
               ),
             ),
             Container(
-              child: Text('The correct answers are ' + cans),
-            )
+              child: Text('The correct answer(s) : ' +
+                  cans +
+                  '\n' +
+                  fetchAnswers(quizId)),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              child: PieChart(
+                dataMap: dataMap,
+                chartType: ChartType.ring,
+                baseChartColor: Colors.grey[50]!,
+                colorList: colorList,
+              ),
+            ),
           ],
         ),
       ),

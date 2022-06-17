@@ -200,6 +200,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pie_chart",
+      "rootUri": "file:///home/medbenchohra/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/pie_chart-5.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "plugin_platform_interface",
       "rootUri": "file:///home/medbenchohra/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.2",
       "packageUri": "lib/",
@@ -290,7 +296,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-06-15T16:24:02.392454Z",
+  "generated": "2022-06-17T17:46:44.534325Z",
   "generator": "pub",
   "generatorVersion": "2.14.4"
 }
