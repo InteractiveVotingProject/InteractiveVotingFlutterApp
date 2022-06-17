@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:device_info_plus/device_info_plus.dart';
-import 'dart:io';
 import 'package:pie_chart/pie_chart.dart';
 
 class ShowChart extends StatefulWidget {
@@ -18,7 +16,7 @@ class _ShowChart extends State<ShowChart> {
   final String codeId;
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
-  Map<String, double> dataMap = <String, double>{};
+  Map<String, double> dataMap = <String, double>{"No Answers Yet": 0};
 
   final colorList = <Color>[
     Colors.greenAccent,
@@ -39,38 +37,18 @@ class _ShowChart extends State<ShowChart> {
 
   _ShowChart(this.codeId);
 
-  fetchData(String qId) {
-    databaseRef
-        .child(qId)
-        .child("correctAnswer")
-        .once()
-        .then((DataSnapshot dataSnapshot) {
-      print(dataSnapshot.value.toString());
-      setState(() {
-        cans = dataSnapshot.value.toString();
-      });
-    });
-
+  fetchAnswers(String qId) {
     var ans = [];
     databaseRef
         .child(qId)
         .child("answers")
         .once()
         .then((DataSnapshot dataSnapshot) {
-      //print(dataSnapshot.value);
-      //print(dataSnapshot.key);
       dataSnapshot.value.forEach((key, values) {
         print(values.toString());
         setState(() {
-          //ans.update(key,values);
           ans.add(values.toString());
-
           print('The length' + ans.length.toString());
-
-          //dataMap.update(key, values);
-          //print(dataMap.values);
-          // val = (key.toString() + ':' + values.toString());
-          //print(val);
         });
         //int i = 1;
         var counts = new Map();
@@ -84,13 +62,84 @@ class _ShowChart extends State<ShowChart> {
             counts[element] += 1;
           }
         });
-
-        // dataMap = counts.cast<String,double>();
+        dataMap.clear();
         counts.forEach((k, v) {
           dataMap[k] = v + .0;
         });
         print("its dataMap for PIe chart");
         print(dataMap);
+        
+        
+      });
+    });
+
+    return  "\n";
+  }
+
+  fetchQuestion(String qId) {
+    databaseRef
+        .child(qId)
+        .child("question")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+
+      setState(() {
+        val = dataSnapshot.value.toString();
+      });
+    });
+    databaseRef
+        .child(qId)
+        .child("choice1")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+
+      setState(() {
+        ch1 = dataSnapshot.value.toString();
+      });
+    });
+    databaseRef
+        .child(qId)
+        .child("choice2")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+
+      setState(() {
+        ch2 = dataSnapshot.value.toString();
+      });
+    });
+    databaseRef
+        .child(qId)
+        .child("choice3")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+
+      setState(() {
+        ch3 = dataSnapshot.value.toString();
+      });
+    });
+    databaseRef
+        .child(qId)
+        .child("choice4")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+      setState(() {
+        ch4 = dataSnapshot.value.toString();
+      });
+    });
+
+    databaseRef
+        .child(qId)
+        .child("correctAnswer")
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value.toString());
+      setState(() {
+        cans = dataSnapshot.value.toString();
       });
     });
 
@@ -109,14 +158,20 @@ class _ShowChart extends State<ShowChart> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("The polls are : " + fetchData(codeId) + '\n'),
+           
+            Text("Question : " + fetchQuestion(codeId) + '\n'),
+            Text("Choices : " + ch1+';'+ ch2+';'+ ch3+';'+ ch4+';' + '\n'),
+            Text("Correct Annwer(s) : " + cans + '\n'),
+            Text("The polls are : " + fetchAnswers(codeId)+ '\n'),
+            
+            
             Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     textDirection: TextDirection.ltr,
                     children: <Widget>[])),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 50),
               child: PieChart(
                 dataMap: dataMap,
                 chartType: ChartType.ring,
@@ -128,9 +183,9 @@ class _ShowChart extends State<ShowChart> {
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
-                  fetchData(codeId);
+                  databaseRef.child(codeId).update({"revealAnswer": true});
                 },
-                child: const Text('Refresh'),
+                child: const Text('Reveal Answer'),
               ),
             ),
           ],

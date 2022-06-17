@@ -41,14 +41,13 @@ class GenerateQuiz extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
-                  databaseRef.child(codeId).update({"revealAnswer": true});
                    Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => ShowChart(codeId: codeId)),
                   );
                 },
-                child: const Text('Reveal Answers'),
+                child: const Text('Show Stats'),
               ),
             ),
           ]),
