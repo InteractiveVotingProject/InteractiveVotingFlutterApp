@@ -71,16 +71,17 @@ class _History extends State<History> {
 
   void downloadFile(String val) async {
     DateTime now = DateTime.now();
-    String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(now);
-    print(formattedDate);
+    String formattedDate = DateFormat('yyyyMMdd_HHmmss').format(now);
+    
     final _dirPath = await _getDirPath();
-
-    final _myFile = File('$_dirPath/data.txt');
+    String historyFileName = "${_dirPath}/history_export_${formattedDate}.txt";
+    final _myFile = File(historyFileName);
     // If data.txt doesn't exist, it will be created automatically
 
     await _myFile.writeAsString(val);
+    
 
-    OpenFile.open('$_dirPath/data.txt');
+    OpenFile.open(historyFileName);
   }
 
   @override
