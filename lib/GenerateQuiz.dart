@@ -1,6 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:interactive_voting_flutter_app/CreateQuiz.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'dart:math';
 import 'ShowChart.dart';
@@ -33,7 +32,7 @@ class GenerateQuiz extends StatelessWidget {
             ),
             Container(
                 child: QrImage(
-              data: pin as String,
+              data: codeId as String,
               version: QrVersions.auto,
               size: 320,
             )),

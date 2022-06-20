@@ -3,8 +3,10 @@ import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
-
+import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:interactive_voting_flutter_app/ReadCode.dart';
+import 'package:open_file/open_file.dart';
 
 class History extends StatefulWidget {
   //final String quizId;
@@ -21,13 +23,13 @@ class _History extends State<History> {
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   String val = "";
-
+  bool _allowWriteFile = false;
 
   // _History(this.quizId);
 
   Future<String> fetchHis() async {
     String? deviceId = await _getId();
-   val = "";
+    val = "";
     databaseRef
         .child(deviceId.toString())
         .once()
@@ -37,7 +39,7 @@ class _History extends State<History> {
       dataSnapshot.value.forEach((key, values) {
         print(values.toString());
         setState(() {
-          val += (key.toString() + ':' + values.toString()+'\n\n');
+          val += (key.toString() + ':' + values.toString() + '\n\n');
           //print(val);
         });
       });
@@ -60,6 +62,27 @@ class _History extends State<History> {
     }
   }
 
+  Future<String> _getDirPath() async {
+    //final dir = await getApplicationDocumentsDirectory();
+    final dir = await getExternalStorageDirectory();
+    print(dir!.path);
+    return dir.path;
+  }
+
+  void downloadFile(String val) async {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('yyyyMMdd_HHmmss').format(now);
+
+    final _dirPath = await _getDirPath();
+    String historyFileName = "${_dirPath}/history_export_${formattedDate}.txt";
+    final _myFile = File(historyFileName);
+    // If data.txt doesn't exist, it will be created automatically
+
+    await _myFile.writeAsString(val);
+
+    OpenFile.open(historyFileName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,18 +95,21 @@ class _History extends State<History> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("History participation for this device " + '\n'),
+            Text("History participation for this device " +
+                '\n\n' +
+                fetchHis().toString().substring(0, 0)),
+            Container(
+              child: Text(
+                  'Previously answered questions are,' + '\n\n' + val + '\n'),
+            ),
             Container(
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
-                  fetchHis();
+                  downloadFile(val);
                 },
-                child: const Text('Check History'),
+                child: const Text('Download History'),
               ),
-            ),
-            Container(
-              child: Text('Previously answered questions are,' + '\n\n' + val+'\n'),
             ),
             Container(
               margin: EdgeInsets.all(25),

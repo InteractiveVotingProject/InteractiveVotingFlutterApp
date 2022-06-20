@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:interactive_voting_flutter_app/ShowChart.dart';
 import 'dart:io';
 import 'package:pie_chart/pie_chart.dart';
 
