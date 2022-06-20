@@ -72,14 +72,13 @@ class _History extends State<History> {
   void downloadFile(String val) async {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('yyyyMMdd_HHmmss').format(now);
-    
+
     final _dirPath = await _getDirPath();
     String historyFileName = "${_dirPath}/history_export_${formattedDate}.txt";
     final _myFile = File(historyFileName);
     // If data.txt doesn't exist, it will be created automatically
 
     await _myFile.writeAsString(val);
-    
 
     OpenFile.open(historyFileName);
   }
@@ -96,16 +95,9 @@ class _History extends State<History> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("History participation for this device " + '\n'),
-            Container(
-              margin: EdgeInsets.all(25),
-              child: ElevatedButton(
-                onPressed: () {
-                  fetchHis();
-                },
-                child: const Text('Check History'),
-              ),
-            ),
+            Text("History participation for this device " +
+                '\n\n' +
+                fetchHis().toString().substring(0, 0)),
             Container(
               child: Text(
                   'Previously answered questions are,' + '\n\n' + val + '\n'),
