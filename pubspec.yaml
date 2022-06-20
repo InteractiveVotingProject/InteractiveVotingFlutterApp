@@ -34,6 +34,7 @@ dependencies:
   charts_flutter: ^0.11.0
   firebase_database_web: ^0.1.2+1
   device_info_plus: ^3.2.3
+  flutter_grid_button: ^2.0.0
 
 
 dev_dependencies:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interactive_voting_flutter_app/History.dart';
+import 'package:interactive_voting_flutter_app/HomepageAccess.dart';
 import 'CreateQuiz.dart';
 import 'ReadCode.dart';
 // import 'dbDetails.dart';
@@ -61,6 +62,27 @@ class Homepage extends StatelessWidget {
                 },
               ),
             ),
+            Container(
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.all(25),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomepageAccess()),
+                    );
+                  },
+                  child: Text(
+                    'ACCESSIBILITY MODE',
+                    style: TextStyle(fontSize: 25),
+                    textAlign: TextAlign.center,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    padding:
+                        MaterialStateProperty.all(const EdgeInsets.all(25)),
+                  ),
+                )),
           ]))),
     );
   }

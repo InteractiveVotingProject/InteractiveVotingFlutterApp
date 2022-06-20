@@ -10,7 +10,6 @@ class GenerateQuiz extends StatelessWidget {
   final String codeId;
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
-
   GenerateQuiz({Key? key, required this.codeId}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -49,8 +48,8 @@ class GenerateQuiz extends StatelessWidget {
                   //   setState(() {
                   //     val = dataSnapshot.value.toString();
                   //   });
-                    databaseRef.child(codeId).update({"revealAnswer": true});
-                  
+                  databaseRef.child(codeId).update({"revealAnswer": true});
+
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(

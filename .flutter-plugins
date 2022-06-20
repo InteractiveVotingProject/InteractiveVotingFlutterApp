@@ -1,11 +1,11 @@
 # This is a generated file; do not edit or check into version control.
-device_info_plus=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus-3.2.3/
-device_info_plus_linux=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_linux-2.1.1/
-device_info_plus_macos=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_macos-2.2.3/
-device_info_plus_web=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_web-2.1.0/
-device_info_plus_windows=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_windows-2.1.1/
-firebase_core=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.10.6/
-firebase_core_web=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.5.3/
-firebase_database=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-8.2.0/
-firebase_database_web=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database_web-0.1.2+1/
-qr_code_scanner=/home/tithir/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.6.1/
+device_info_plus=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus-3.2.3/
+device_info_plus_linux=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_linux-2.1.1/
+device_info_plus_macos=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_macos-2.2.3/
+device_info_plus_web=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_web-2.1.0/
+device_info_plus_windows=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/device_info_plus_windows-2.1.1/
+firebase_core=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-1.10.6/
+firebase_core_web=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.5.3/
+firebase_database=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-8.2.0/
+firebase_database_web=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database_web-0.1.2+1/
+qr_code_scanner=/home/thomas/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.6.1/
