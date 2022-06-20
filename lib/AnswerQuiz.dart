@@ -209,7 +209,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('?????????????'),
+        title: Text('test ${quizId}'),
       ),
       body: Center(
         child: Column(
