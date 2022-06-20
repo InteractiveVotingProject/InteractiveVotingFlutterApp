@@ -23,8 +23,6 @@ class _History extends State<History> {
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   String val = "";
-  bool _allowWriteFile = false;
-
   // _History(this.quizId);
 
   Future<String> fetchHis() async {

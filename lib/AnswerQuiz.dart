@@ -30,6 +30,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
     Colors.deepPurpleAccent
   ];
 
+  
   String val = "";
   String ch1 = "";
   String ch2 = "";
@@ -41,6 +42,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
   _AnswerQuiz(this.quizId);
 
   fetchQuestion(String qId) {
+
     databaseRef
         .child(qId)
         .child("question")
@@ -52,6 +54,8 @@ class _AnswerQuiz extends State<AnswerQuiz> {
         val = dataSnapshot.value.toString();
       });
     });
+    if v
+
     databaseRef
         .child(qId)
         .child("choice1")
@@ -122,7 +126,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
     return val + "\n";
   }
 
-  fetchAnswers(String qId) {
+  fetchAnswers(String qId, String rans) {
     var ans = [];
     databaseRef
         .child(qId)
@@ -147,10 +151,16 @@ class _AnswerQuiz extends State<AnswerQuiz> {
             counts[element] += 1;
           }
         });
-        dataMap.clear();
-        counts.forEach((k, v) {
-          dataMap[k] = v + .0;
-        });
+
+        if (rans == 'true') {
+          dataMap.clear();
+          counts.forEach((k, v) {
+            dataMap[k] = v + .0;
+          });
+        }else{
+            dataMap = <String, double>{"No Answers Yet": 0};
+        }
+
         print("its dataMap for PIe chart");
         print(dataMap);
       });
@@ -289,16 +299,13 @@ class _AnswerQuiz extends State<AnswerQuiz> {
               child: ElevatedButton(
                 onPressed: () {
                   addAnswer(quizId, getAnswers());
-                  fetchAnswers(quizId);
+                  fetchAnswers(quizId, rans);
                 },
                 child: const Text('Submit Answer'),
               ),
             ),
             Container(
-              child: Text('The correct answer(s) : ' +
-                  cans +
-                  '\n' +
-                  fetchAnswers(quizId)),
+              child: Text('The correct answer(s) : ' + cans + '\n'),
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 50),
