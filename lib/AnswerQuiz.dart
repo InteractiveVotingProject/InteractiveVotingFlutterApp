@@ -30,7 +30,6 @@ class _AnswerQuiz extends State<AnswerQuiz> {
     Colors.deepPurpleAccent
   ];
 
-  
   String val = "";
   String ch1 = "";
   String ch2 = "";
@@ -54,8 +53,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
         val = dataSnapshot.value.toString();
       });
     });
-    if v
-
+    
     databaseRef
         .child(qId)
         .child("choice1")
