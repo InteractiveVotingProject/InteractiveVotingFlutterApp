@@ -3,8 +3,10 @@ import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
-
+import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:interactive_voting_flutter_app/ReadCode.dart';
+import 'package:open_file/open_file.dart';
 
 class History extends StatefulWidget {
   //final String quizId;
@@ -21,13 +23,13 @@ class _History extends State<History> {
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   String val = "";
-
+  bool _allowWriteFile = false;
 
   // _History(this.quizId);
 
   Future<String> fetchHis() async {
     String? deviceId = await _getId();
-   val = "";
+    val = "";
     databaseRef
         .child(deviceId.toString())
         .once()
@@ -37,7 +39,7 @@ class _History extends State<History> {
       dataSnapshot.value.forEach((key, values) {
         print(values.toString());
         setState(() {
-          val += (key.toString() + ':' + values.toString()+'\n\n');
+          val += (key.toString() + ':' + values.toString() + '\n\n');
           //print(val);
         });
       });
@@ -58,6 +60,27 @@ class _History extends State<History> {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       return androidDeviceInfo.androidId; // unique ID on Android
     }
+  }
+
+  Future<String> _getDirPath() async {
+    //final dir = await getApplicationDocumentsDirectory();
+    final dir = await getExternalStorageDirectory();
+    print(dir!.path);
+    return dir.path;
+  }
+
+  void downloadFile(String val) async {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('kk:mm:ss \n EEE d MMM').format(now);
+    print(formattedDate);
+    final _dirPath = await _getDirPath();
+
+    final _myFile = File('$_dirPath/data.txt');
+    // If data.txt doesn't exist, it will be created automatically
+
+    await _myFile.writeAsString(val);
+
+    OpenFile.open('$_dirPath/data.txt');
   }
 
   @override
@@ -83,7 +106,17 @@ class _History extends State<History> {
               ),
             ),
             Container(
-              child: Text('Previously answered questions are,' + '\n\n' + val+'\n'),
+              child: Text(
+                  'Previously answered questions are,' + '\n\n' + val + '\n'),
+            ),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: ElevatedButton(
+                onPressed: () {
+                  downloadFile(val);
+                },
+                child: const Text('Download History'),
+              ),
             ),
             Container(
               margin: EdgeInsets.all(25),
