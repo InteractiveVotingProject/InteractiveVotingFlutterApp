@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:interactive_voting_flutter_app/History.dart';
-import 'package:interactive_voting_flutter_app/HomepageAccess.dart';
 import 'CreateQuiz.dart';
 import 'ReadCode.dart';
-// import 'dbDetails.dart';
+import 'Homepage.dart';
 
-class Homepage extends StatelessWidget {
-  Homepage({Key? key, this.code}) : super(key: key);
-  final String? code;
+class HomepageAccess extends StatelessWidget {
+  const HomepageAccess({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +20,7 @@ class Homepage extends StatelessWidget {
               child: OutlinedButton(
                 child: Text(
                   "Launch a quiz",
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 40.0),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -38,7 +36,7 @@ class Homepage extends StatelessWidget {
               child: OutlinedButton(
                 child: Text(
                   'Answer',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 40.0),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -53,7 +51,7 @@ class Homepage extends StatelessWidget {
               child: OutlinedButton(
                 child: Text(
                   'Previous History',
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 40.0),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -64,35 +62,26 @@ class Homepage extends StatelessWidget {
               ),
             ),
             Container(
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.all(25),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomepageAccess()),
-                  );
-                },
-                child: Text(
-                  'ACCESSIBILITY MODE',
-                  style: TextStyle(fontSize: 25),
-                  textAlign: TextAlign.center,
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red),
-                  padding:
-                      MaterialStateProperty.all(const EdgeInsets.all(25)),
-                ),
-              )),
-            Container(
-              margin: EdgeInsets.all(25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('Session ID is ${code}', textAlign: TextAlign.left),
-                ],
-              ),
-            ),
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.all(25),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                  },
+                  child: Text(
+                    'DISABLE ACCESSIBILITY MODE',
+                    style: TextStyle(fontSize: 40),
+                    textAlign: TextAlign.center,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    padding:
+                        MaterialStateProperty.all(const EdgeInsets.all(25)),
+                  ),
+                )),
           ]))),
     );
   }
