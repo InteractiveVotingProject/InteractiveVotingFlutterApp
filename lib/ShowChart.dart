@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:interactive_voting_flutter_app/CreateQuiz.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class ShowChart extends StatefulWidget {
@@ -186,6 +187,22 @@ class _ShowChart extends State<ShowChart> {
                   databaseRef.child(codeId).update({"revealAnswer": true});
                 },
                 child: const Text('Reveal Answer'),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: OutlinedButton(
+                child: Text(
+                  "Launch a quiz",
+                  style: TextStyle(fontSize: 20.0),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CreateQuiz()),
+                    //MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
               ),
             ),
           ],
