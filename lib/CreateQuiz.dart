@@ -3,6 +3,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'GenerateQuiz.dart';
 import 'dart:math';
+import 'dart:ui' as ui;
+import 'package:intl/intl.dart';
 
 Random rng = new Random();
 String pin = (rng.nextInt(900000) + 100000).toString();
@@ -43,6 +45,9 @@ class _CreateQuiz extends State<CreateQuiz> {
       }
       //print('here ' + dataSnapshot.value.toString());
     });
+    DateTime now = DateTime.now();
+    String creationDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(now);
+
     databaseRef.child(pin).set({
       'question': question,
       'choice1': choice1,
@@ -50,7 +55,8 @@ class _CreateQuiz extends State<CreateQuiz> {
       'choice3': choice3,
       'choice4': choice4,
       'correctAnswer': corrAns,
-      'revealAnswer': false
+      'revealAnswer': false,
+      'creationDate':creationDate
     });
   }
 
@@ -94,7 +100,7 @@ class _CreateQuiz extends State<CreateQuiz> {
             Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    textDirection: TextDirection.ltr,
+                    textDirection: ui.TextDirection.ltr,
                     children: <Widget>[
                   Container(
                     child: Row(

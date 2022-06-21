@@ -17,13 +17,13 @@ class History extends StatefulWidget {
 }
 
 class _History extends State<History> {
-  //final String quizId;
-//  _AnswerQuiz(this.quizId);
   final answerController = TextEditingController();
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   String val = "";
-  // _History(this.quizId);
+  String createdDate = "";
+  String qId = "";
+
 
   Future<String> fetchHis() async {
     String? deviceId = await _getId();
@@ -38,14 +38,54 @@ class _History extends State<History> {
         print(values.toString());
         setState(() {
           val += (key.toString() + ':' + values.toString() + '\n\n');
+          //delAnswers();
+
           //print(val);
         });
       });
     });
-
     //String choices =
     //  "\n1. " + ch1 + "\n2. " + ch2 + "\n3. " + ch3 + "\n4. " + ch4;
     return val + "\n";
+  }
+
+  Future<void> delAnswers() async {
+    String? deviceId = await _getId();
+
+    databaseRef
+        .child(deviceId.toString())
+        .once()
+        .then((DataSnapshot dataSnapshot) {
+      print(dataSnapshot.value);
+      print(dataSnapshot.key);
+      dataSnapshot.value.forEach((key, values) {
+        print(key.toString());
+        setState(() {
+          qId = key.toString();
+          databaseRef
+              .child(qId)
+              .child("creationDate")
+              .once()
+              .then((DataSnapshot dataSnapshot) {
+            print(dataSnapshot.value.toString());
+            setState(() {
+              createdDate = dataSnapshot.value.toString();
+              //print(createdDate);
+              DateTime crDate = DateTime.parse(createdDate);
+              //print('date is :'+ crDate.toString());
+
+              DateTime currDate = DateTime.now();
+              DateTime dateAfterTwoYr = crDate.add(Duration(days: 730));
+
+              if (currDate.isAfter(dateAfterTwoYr)) {
+                databaseRef.child(qId).remove();
+                databaseRef.child(deviceId.toString()).child(qId).remove();
+              }
+            });
+          });
+        });
+      });
+    });
   }
 
   Future<String?> _getId() async {
@@ -93,14 +133,22 @@ class _History extends State<History> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("History participation for this device " +
-                '\n\n' +
-                fetchHis().toString().substring(0, 0)),
-            Container(
-              child: Text(
-                  'Previously answered questions are,' + '\n\n' + val + '\n'),
-            ),
-            Container(
+            
+              Text("History participation for this device " +
+                  '\n\n' +
+                  fetchHis().toString().substring(0, 0)),
+            if (val != 'null')
+              Container(
+                child: Text(
+                    'Previously answered questions are,' + '\n\n' + val + '\n'),
+              ),
+            if (val == 'null')
+              Container(
+                child: Text(
+                    'The device has not been used to answer questions earlier.\n\n' +
+                        'The previous participation is more than 2 years old and hence removed\n'),
+              ),
+            if (val != 'null')Container(
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
                 onPressed: () {
@@ -122,6 +170,15 @@ class _History extends State<History> {
                     MaterialPageRoute(builder: (context) => ReadCode()),
                   );
                 },
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: ElevatedButton(
+                onPressed: () {
+                  delAnswers();
+                },
+                child: const Text('Clean Up Data more than 2 years'),
               ),
             ),
           ],
