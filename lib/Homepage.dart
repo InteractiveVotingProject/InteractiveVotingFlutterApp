@@ -6,7 +6,8 @@ import 'ReadCode.dart';
 // import 'dbDetails.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+  Homepage({Key? key, this.code}) : super(key: key);
+  final String? code;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,6 +50,7 @@ class Homepage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.all(25),
+<<<<<<< HEAD
               child: OutlinedButton(
                 child: Text(
                   'Previous History',
@@ -83,6 +85,15 @@ class Homepage extends StatelessWidget {
                         MaterialStateProperty.all(const EdgeInsets.all(25)),
                   ),
                 )),
+=======
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Session ID is ${code}', textAlign: TextAlign.left),
+                ],
+              ),
+            ),
+>>>>>>> UI
           ]))),
     );
   }
