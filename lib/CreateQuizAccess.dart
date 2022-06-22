@@ -4,6 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'GenerateQuiz.dart';
 import 'dart:math';
 
+import 'GenerateQuizAccess.dart';
+
 Random rng = new Random();
 String pin = (rng.nextInt(900000) + 100000).toString();
 
@@ -221,7 +223,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => GenerateQuiz(codeId: pin)),
+                        builder: (context) => GenerateQuizAccess(codeId: pin)),
                   );
                 },
                 child: const Text(
