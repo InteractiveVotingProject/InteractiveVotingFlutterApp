@@ -11,7 +11,6 @@ import 'package:open_file/open_file.dart';
 class History extends StatefulWidget {
   //final String quizId;
   const History({Key? key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() => _History();
 }
@@ -23,6 +22,7 @@ class _History extends State<History> {
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   String val = "";
+  String testingVar = "will be removed, if not you remove it now!";
   bool _allowWriteFile = false;
 
   // _History(this.quizId);
