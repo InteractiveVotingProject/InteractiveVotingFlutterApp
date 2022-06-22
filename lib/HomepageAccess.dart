@@ -53,7 +53,7 @@ class HomepageAccess extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: OutlinedButton(
                 child: Text(
-                  'Previous History',
+                  'Previous Quizes',
                   style: TextStyle(fontSize: 40.0),
                 ),
                 onPressed: () {

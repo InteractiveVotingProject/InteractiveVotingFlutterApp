@@ -52,7 +52,7 @@ class Homepage extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: OutlinedButton(
                 child: Text(
-                  'Previous History',
+                  'Previous Quiz',
                   style: TextStyle(fontSize: 20.0),
                 ),
                 onPressed: () {
