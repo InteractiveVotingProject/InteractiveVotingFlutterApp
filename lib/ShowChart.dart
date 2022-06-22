@@ -69,12 +69,10 @@ class _ShowChart extends State<ShowChart> {
         });
         print("its dataMap for PIe chart");
         print(dataMap);
-        
-        
       });
     });
 
-    return  "\n";
+    return "\n";
   }
 
   fetchQuestion(String qId) {
@@ -159,13 +157,19 @@ class _ShowChart extends State<ShowChart> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-           
             Text("Question : " + fetchQuestion(codeId) + '\n'),
-            Text("Choices : " + ch1+';'+ ch2+';'+ ch3+';'+ ch4+';' + '\n'),
+            Text("Choices : " +
+                ch1 +
+                ';' +
+                ch2 +
+                ';' +
+                ch3 +
+                ';' +
+                ch4 +
+                ';' +
+                '\n'),
             Text("Correct Annwer(s) : " + cans + '\n'),
-            Text("The polls are : " + fetchAnswers(codeId)+ '\n'),
-            
-            
+            Text("The polls are : " + fetchAnswers(codeId) + '\n'),
             Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
