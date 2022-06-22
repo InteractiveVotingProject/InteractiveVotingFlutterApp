@@ -80,7 +80,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                   Text(
                     'Write your question',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 40.0),
+                    style: TextStyle(fontSize: 30.0),
                   ),
                   TextField(
                     controller: questionController,
@@ -89,105 +89,122 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                   Text(
                     'Select good answer(s) :',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 40.0),
+                    style: TextStyle(fontSize: 30.0),
                   ),
                 ],
               ),
             ),
             Container(
+                margin: EdgeInsets.all(25),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     textDirection: TextDirection.ltr,
                     children: <Widget>[
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        ElevatedButton(
-                          child: Text("1"),
-                          onPressed: null,
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              child:
+                                  Text("1", style: TextStyle(fontSize: 30.0)),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 200,
+                                child: TextField(
+                                    controller: mcqController,
+                                    decoration:
+                                        new InputDecoration(hintText: "Choice"),
+                                    style: TextStyle(fontSize: 30.0))),
+                            Checkbox(
+                              value: this.valueCb1,
+                              onChanged: (bool? valueCb1) {
+                                setState(() {
+                                  this.valueCb1 = valueCb1!;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb1,
-                          onChanged: (bool? valueCb1) {
-                            setState(() {
-                              this.valueCb1 = valueCb1!;
-                            });
-                          },
+                      ),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              child:
+                                  Text("2", style: TextStyle(fontSize: 30.0)),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 200,
+                                child: TextField(
+                                    controller: mcqController2,
+                                    decoration:
+                                        new InputDecoration(hintText: "Choice"),
+                                    style: TextStyle(fontSize: 30.0))),
+                            Checkbox(
+                              value: this.valueCb2,
+                              onChanged: (bool? valueCb2) {
+                                setState(() {
+                                  this.valueCb2 = valueCb2!;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                        ElevatedButton(
-                          child: Text("2"),
-                          onPressed: null,
+                      ),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              child:
+                                  Text("3", style: TextStyle(fontSize: 30.0)),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 200,
+                                child: TextField(
+                                    controller: mcqController3,
+                                    decoration:
+                                        new InputDecoration(hintText: "Choice"),
+                                    style: TextStyle(fontSize: 30.0))),
+                            Checkbox(
+                              value: this.valueCb3,
+                              onChanged: (bool? valueCb3) {
+                                setState(() {
+                                  this.valueCb3 = valueCb3!;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController2,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb2,
-                          onChanged: (bool? valueCb2) {
-                            setState(() {
-                              this.valueCb2 = valueCb2!;
-                            });
-                          },
+                      ),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              child:
+                                  Text("4", style: TextStyle(fontSize: 30.0)),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 200,
+                                child: TextField(
+                                    controller: mcqController4,
+                                    decoration:
+                                        new InputDecoration(hintText: "Choice"),
+                                    style: TextStyle(fontSize: 30.0))),
+                            Checkbox(
+                              value: this.valueCb4,
+                              onChanged: (bool? valueCb4) {
+                                setState(() {
+                                  this.valueCb4 = valueCb4!;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        ElevatedButton(
-                          child: Text("3"),
-                          onPressed: null,
-                        ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController3,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb3,
-                          onChanged: (bool? valueCb3) {
-                            setState(() {
-                              this.valueCb3 = valueCb3!;
-                            });
-                          },
-                        ),
-                        ElevatedButton(
-                          child: Text("4"),
-                          onPressed: null,
-                        ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController4,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb4,
-                          onChanged: (bool? valueCb4) {
-                            setState(() {
-                              this.valueCb4 = valueCb4!;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                ])),
+                      ),
+                    ])),
             Container(
               margin: EdgeInsets.all(20),
               child: ElevatedButton(

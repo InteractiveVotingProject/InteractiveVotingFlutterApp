@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -24,7 +26,7 @@ class _History extends State<History> {
   String createdDate = "";
   String qId = "";
 
-  Future<String> fetchHis() async {
+  Future<void> fetchHis() async {
     String? deviceId = await _getId();
     val = "";
     databaseRef
@@ -40,7 +42,7 @@ class _History extends State<History> {
         });
       });
     });
-    return val + "\n";
+    //return val + "\n";
   }
 
   Future<void> delAnswers() async {

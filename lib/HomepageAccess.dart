@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:interactive_voting_flutter_app/CreateQuizAccess.dart';
 import 'package:interactive_voting_flutter_app/History.dart';
+import 'package:interactive_voting_flutter_app/ReadCodeAccess.dart';
 import 'CreateQuiz.dart';
 import 'ReadCode.dart';
 import 'Homepage.dart';
@@ -25,7 +27,7 @@ class HomepageAccess extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CreateQuiz()),
+                    MaterialPageRoute(builder: (context) => CreateQuizAccess()),
                     //MaterialPageRoute(builder: (context) => HomePage()),
                   );
                 },
@@ -41,7 +43,7 @@ class HomepageAccess extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ReadCode()),
+                    MaterialPageRoute(builder: (context) => ReadCodeAccess()),
                   );
                 },
               ),
