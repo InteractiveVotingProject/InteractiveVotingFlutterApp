@@ -7,8 +7,8 @@ class ReadCode extends StatelessWidget {
   final otpController = TextEditingController();
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return Scaffold(
+        body: Scaffold(
       appBar: AppBar(
         title: Text('Quiz App'),
       ),
