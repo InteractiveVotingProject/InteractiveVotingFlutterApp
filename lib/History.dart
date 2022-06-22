@@ -37,14 +37,9 @@ class _History extends State<History> {
         print(values.toString());
         setState(() {
           val += (key.toString() + ':' + values.toString() + '\n\n');
-          //delAnswers();
-
-          //print(val);
         });
       });
     });
-    //String choices =
-    //  "\n1. " + ch1 + "\n2. " + ch2 + "\n3. " + ch3 + "\n4. " + ch4;
     return val + "\n";
   }
 
@@ -77,7 +72,7 @@ class _History extends State<History> {
               DateTime dateAfterTwoYr = crDate.add(Duration(days: 730));
 
               if (currDate.isAfter(dateAfterTwoYr)) {
-                databaseRef.child(qId).remove();
+                //databaseRef.child(qId).remove();
                 databaseRef.child(deviceId.toString()).child(qId).remove();
               }
             });
@@ -112,11 +107,11 @@ class _History extends State<History> {
 
     final _dirPath = await _getDirPath();
     String historyFileName = "${_dirPath}/history_export_${formattedDate}.txt";
+    print("historyFileName:" + historyFileName);
     final _myFile = File(historyFileName);
     // If data.txt doesn't exist, it will be created automatically
-
-    await _myFile.writeAsString(val);
-
+    // await _myFile.writeAsString(val);
+    _myFile.writeAsStringSync(val);
     OpenFile.open(historyFileName);
   }
 
@@ -133,34 +128,34 @@ class _History extends State<History> {
               margin: EdgeInsets.all(25),
             ),
             Text(
-              "History for previously answered question(s) on this device " +
+              "History for previously answered question(s) on this device: " +
                   '\n\n' +
                   fetchHis().toString().substring(0, 0),
               textAlign: TextAlign.left,
             ),
-            if (val != 'null')
+            if (val != "")
               Container(
                 child: Text(
                   '\n\n' + val + '\n',
                   textAlign: TextAlign.left,
                 ),
               ),
-            if (val == 'null')
+            if (val == "")
               Container(
                 child: Text(
                     'The device has not been used to answer questions earlier.\n\n' +
                         'The previous participation is more than 2 years old and hence removed\n'),
               ),
-            if (val != 'null')
-              Container(
-                margin: EdgeInsets.all(25),
-                child: ElevatedButton(
-                  onPressed: () {
-                    downloadFile(val);
-                  },
-                  child: const Text('Download History'),
-                ),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: ElevatedButton(
+                onPressed: () {
+                  // fetchHis();
+                  downloadFile(val);
+                },
+                child: const Text('Download History'),
               ),
+            ),
             Container(
               margin: EdgeInsets.all(25),
               child: ElevatedButton(
@@ -180,6 +175,7 @@ class _History extends State<History> {
               child: ElevatedButton(
                 onPressed: () {
                   delAnswers();
+                  fetchHis();
                 },
                 child: const Text('Clean Up Data more than 2 years'),
               ),
