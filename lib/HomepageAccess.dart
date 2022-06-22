@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interactive_voting_flutter_app/CreateQuizAccess.dart';
 import 'package:interactive_voting_flutter_app/History.dart';
+import 'package:interactive_voting_flutter_app/HistoryAccess.dart';
 import 'package:interactive_voting_flutter_app/ReadCodeAccess.dart';
 import 'CreateQuiz.dart';
 import 'ReadCode.dart';
@@ -58,7 +59,7 @@ class HomepageAccess extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => History()),
+                    MaterialPageRoute(builder: (context) => HistoryAccess()),
                   );
                 },
               ),
