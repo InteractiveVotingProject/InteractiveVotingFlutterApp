@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:interactive_voting_flutter_app/ReadCodeAccess.dart';
 import 'dart:io';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
@@ -169,7 +170,7 @@ class _HistoryAccess extends State<HistoryAccess> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ReadCode()),
+                    MaterialPageRoute(builder: (context) => ReadCodeAccess()),
                   );
                 },
               ),

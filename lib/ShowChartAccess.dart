@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:interactive_voting_flutter_app/CreateQuiz.dart';
+import 'package:interactive_voting_flutter_app/CreateQuizAccess.dart';
 import 'package:pie_chart/pie_chart.dart';
 
 class ShowChartAccess extends StatefulWidget {
@@ -209,8 +210,7 @@ class _ShowChartAccess extends State<ShowChartAccess> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CreateQuiz()),
-                    //MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => CreateQuizAccess()),
                   );
                 },
               ),

@@ -52,7 +52,7 @@ class Homepage extends StatelessWidget {
               margin: EdgeInsets.all(25),
               child: OutlinedButton(
                 child: Text(
-                  'Previous Quiz',
+                  'Previous Quizzes',
                   style: TextStyle(fontSize: 20.0),
                 ),
                 onPressed: () {
@@ -84,6 +84,15 @@ class Homepage extends StatelessWidget {
                         MaterialStateProperty.all(const EdgeInsets.all(25)),
                   ),
                 )),
+            Container(
+              margin: EdgeInsets.all(25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text('Session ID is ${code}', textAlign: TextAlign.left),
+                ],
+              ),
+            ),
           ]))),
     );
   }
