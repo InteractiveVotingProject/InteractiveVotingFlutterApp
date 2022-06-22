@@ -7,15 +7,10 @@ Random random = new Random();
 String randomNumber = random.nextInt(999999).toString();
 
 class GenerateQuiz extends StatelessWidget {
-<<<<<<< HEAD
   final String codeId;
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   GenerateQuiz({Key? key, required this.codeId}) : super(key: key);
-=======
-  const GenerateQuiz({Key? key, this.pin}) : super(key: key);
-  final String? pin;
->>>>>>> UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,17 +24,13 @@ class GenerateQuiz extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-<<<<<<< HEAD
                   Text('Code is ' + codeId, textAlign: TextAlign.left),
-=======
-                  Text('Code is ${pin}', textAlign: TextAlign.left),
->>>>>>> UI
                 ],
               ),
             ),
             Container(
                 child: QrImage(
-              data: pin as String,
+              data: codeId as String,
               version: QrVersions.auto,
               size: 320,
             )),

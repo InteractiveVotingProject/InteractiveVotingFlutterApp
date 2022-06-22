@@ -50,7 +50,6 @@ class Homepage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.all(25),
-<<<<<<< HEAD
               child: OutlinedButton(
                 child: Text(
                   'Previous History',
@@ -85,15 +84,6 @@ class Homepage extends StatelessWidget {
                         MaterialStateProperty.all(const EdgeInsets.all(25)),
                   ),
                 )),
-=======
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('Session ID is ${code}', textAlign: TextAlign.left),
-                ],
-              ),
-            ),
->>>>>>> UI
           ]))),
     );
   }

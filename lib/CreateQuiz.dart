@@ -17,29 +17,21 @@ class CreateQuiz extends StatefulWidget {
 
 class _CreateQuiz extends State<CreateQuiz> {
   final questionController = TextEditingController();
-<<<<<<< HEAD
   final mcqController = TextEditingController();
   final mcqController2 = TextEditingController();
   final mcqController3 = TextEditingController();
   final mcqController4 = TextEditingController();
-=======
   final isSelected = <bool>[false, false, false, false, false];
->>>>>>> UI
 
   final databaseRef = FirebaseDatabase.instance.reference();
   final Future<FirebaseApp> future = Firebase.initializeApp();
 
-<<<<<<< HEAD
+  String pin = '';
   void addData(String question, String choice1, String choice2, String choice3,
       String choice4, String corrAns) {
     //print('test' + databaseRef.child("811280").toString());
-=======
-  String pin = '';
-
-  void addData(String data) {
     var rng = new Random();
     pin = (rng.nextInt(900000) + 100000).toString();
->>>>>>> UI
     databaseRef
         .child(pin)
         .child("question")
@@ -103,7 +95,6 @@ class _CreateQuiz extends State<CreateQuiz> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     textDirection: TextDirection.ltr,
                     children: <Widget>[
-<<<<<<< HEAD
                   Container(
                     child: Row(
                       children: <Widget>[
@@ -192,7 +183,6 @@ class _CreateQuiz extends State<CreateQuiz> {
                       ],
                     ),
                   ),
-=======
                   ToggleButtons(
                     color: Colors.black.withOpacity(0.60),
                     selectedColor: Color(0xFF6200EE),
@@ -230,13 +220,11 @@ class _CreateQuiz extends State<CreateQuiz> {
                       ),
                     ],
                   )
->>>>>>> UI
                 ])),
             Container(
               margin: EdgeInsets.all(20),
               child: ElevatedButton(
                 onPressed: () {
-<<<<<<< HEAD
                   String corrAns = getCorrAns();
                   addData(
                       questionController.text,
@@ -249,15 +237,6 @@ class _CreateQuiz extends State<CreateQuiz> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => GenerateQuiz(codeId: pin)),
-=======
-                  addData(
-                    questionController.text,
-                  );
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => GenerateQuiz(pin: pin)),
->>>>>>> UI
                   );
                 },
                 child: const Text('Generate'),
