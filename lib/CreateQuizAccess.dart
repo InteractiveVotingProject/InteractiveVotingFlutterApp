@@ -73,29 +73,30 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
         body: Center(
           child: Column(children: <Widget>[
             Container(
-              margin: EdgeInsets.all(25),
+              margin: EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
                     'Write your question',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 30.0),
+                    style: TextStyle(fontSize: 20.0),
                   ),
                   TextField(
                     controller: questionController,
+                    style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
                   Text(
                     'Select good answer(s) :',
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 30.0),
+                    style: TextStyle(fontSize: 20.0),
                   ),
                 ],
               ),
             ),
             Container(
-                margin: EdgeInsets.all(25),
+                margin: EdgeInsets.all(10),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     textDirection: TextDirection.ltr,
@@ -105,7 +106,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                           children: <Widget>[
                             ElevatedButton(
                               child:
-                                  Text("1", style: TextStyle(fontSize: 30.0)),
+                                  Text("1", style: TextStyle(fontSize: 20.0)),
                               onPressed: null,
                             ),
                             SizedBox(
@@ -114,7 +115,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                                     controller: mcqController,
                                     decoration:
                                         new InputDecoration(hintText: "Choice"),
-                                    style: TextStyle(fontSize: 30.0))),
+                                    style: TextStyle(fontSize: 20.0))),
                             Checkbox(
                               value: this.valueCb1,
                               onChanged: (bool? valueCb1) {
@@ -131,7 +132,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                           children: <Widget>[
                             ElevatedButton(
                               child:
-                                  Text("2", style: TextStyle(fontSize: 30.0)),
+                                  Text("2", style: TextStyle(fontSize: 20.0)),
                               onPressed: null,
                             ),
                             SizedBox(
@@ -140,7 +141,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                                     controller: mcqController2,
                                     decoration:
                                         new InputDecoration(hintText: "Choice"),
-                                    style: TextStyle(fontSize: 30.0))),
+                                    style: TextStyle(fontSize: 20.0))),
                             Checkbox(
                               value: this.valueCb2,
                               onChanged: (bool? valueCb2) {
@@ -157,7 +158,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                           children: <Widget>[
                             ElevatedButton(
                               child:
-                                  Text("3", style: TextStyle(fontSize: 30.0)),
+                                  Text("3", style: TextStyle(fontSize: 20.0)),
                               onPressed: null,
                             ),
                             SizedBox(
@@ -166,7 +167,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                                     controller: mcqController3,
                                     decoration:
                                         new InputDecoration(hintText: "Choice"),
-                                    style: TextStyle(fontSize: 30.0))),
+                                    style: TextStyle(fontSize: 20.0))),
                             Checkbox(
                               value: this.valueCb3,
                               onChanged: (bool? valueCb3) {
@@ -183,7 +184,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                           children: <Widget>[
                             ElevatedButton(
                               child:
-                                  Text("4", style: TextStyle(fontSize: 30.0)),
+                                  Text("4", style: TextStyle(fontSize: 20.0)),
                               onPressed: null,
                             ),
                             SizedBox(
@@ -192,7 +193,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                                     controller: mcqController4,
                                     decoration:
                                         new InputDecoration(hintText: "Choice"),
-                                    style: TextStyle(fontSize: 30.0))),
+                                    style: TextStyle(fontSize: 20.0))),
                             Checkbox(
                               value: this.valueCb4,
                               onChanged: (bool? valueCb4) {
@@ -206,7 +207,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                       ),
                     ])),
             Container(
-              margin: EdgeInsets.all(20),
+              margin: EdgeInsets.all(5),
               child: ElevatedButton(
                 onPressed: () {
                   String corrAns = getCorrAns();
@@ -225,7 +226,7 @@ class _CreateQuizAccess extends State<CreateQuizAccess> {
                 },
                 child: const Text(
                   'Generate',
-                  style: TextStyle(fontSize: 40.0),
+                  style: TextStyle(fontSize: 30.0),
                 ),
               ),
             ),
