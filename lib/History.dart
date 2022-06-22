@@ -24,7 +24,6 @@ class _History extends State<History> {
   String createdDate = "";
   String qId = "";
 
-
   Future<String> fetchHis() async {
     String? deviceId = await _getId();
     val = "";
@@ -133,14 +132,18 @@ class _History extends State<History> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            
-              Text("History participation for this device " +
+            Text(
+              "History for previously answered question(s) on this device " +
                   '\n\n' +
-                  fetchHis().toString().substring(0, 0)),
+                  fetchHis().toString().substring(0, 0),
+              textAlign: TextAlign.left,
+            ),
             if (val != 'null')
               Container(
                 child: Text(
-                    'Previously answered questions are,' + '\n\n' + val + '\n'),
+                  '\n\n' + val + '\n',
+                  textAlign: TextAlign.left,
+                ),
               ),
             if (val == 'null')
               Container(
@@ -148,21 +151,21 @@ class _History extends State<History> {
                     'The device has not been used to answer questions earlier.\n\n' +
                         'The previous participation is more than 2 years old and hence removed\n'),
               ),
-            if (val != 'null')Container(
-              margin: EdgeInsets.all(25),
-              child: ElevatedButton(
-                onPressed: () {
-                  downloadFile(val);
-                },
-                child: const Text('Download History'),
+            if (val != 'null')
+              Container(
+                margin: EdgeInsets.all(25),
+                child: ElevatedButton(
+                  onPressed: () {
+                    downloadFile(val);
+                  },
+                  child: const Text('Download History'),
+                ),
               ),
-            ),
             Container(
               margin: EdgeInsets.all(25),
-              child: OutlinedButton(
+              child: ElevatedButton(
                 child: Text(
                   'Visit Quiz with Pin',
-                  style: TextStyle(fontSize: 20.0),
                 ),
                 onPressed: () {
                   Navigator.push(
