@@ -3,6 +3,9 @@ import 'package:interactive_voting_flutter_app/History.dart';
 import 'package:interactive_voting_flutter_app/HomepageAccess.dart';
 import 'CreateQuiz.dart';
 import 'ReadCode.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 // import 'dbDetails.dart';
 
 class Homepage extends StatelessWidget {
@@ -10,18 +13,18 @@ class Homepage extends StatelessWidget {
   final String? code;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Quiz App'),
-          ),
-          body: Center(
-              child: Column(children: <Widget>[
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Quiz App'),
+        ),
+        body: Center(
+            child: Column(
+          children: <Widget>[
             Container(
               margin: EdgeInsets.all(25),
               child: OutlinedButton(
                 child: Text(
-                  "Launch a quiz",
+                  "Launch a Quiz",
                   style: TextStyle(fontSize: 20.0),
                 ),
                 onPressed: () {
@@ -84,7 +87,7 @@ class Homepage extends StatelessWidget {
                         MaterialStateProperty.all(const EdgeInsets.all(25)),
                   ),
                 )),
-          ]))),
-    );
+          ],
+        )));
   }
 }

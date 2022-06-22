@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
-=======
->>>>>>> UI
 
 class AnswerQuiz extends StatefulWidget {
   final String quizId;
