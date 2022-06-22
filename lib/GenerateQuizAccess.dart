@@ -14,13 +14,6 @@ class GenerateQuizAccess extends StatelessWidget {
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
   GenerateQuizAccess({Key? key, required this.codeId}) : super(key: key);
-  Future<bool> _onWillPop(context) async {
-    return (await Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ShowChart(codeId: codeId)),
-        )) ??
-        false;
-  }
 
   @override
   Widget build(BuildContext context) {

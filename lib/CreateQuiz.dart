@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'Homepage.dart';
 import 'GenerateQuiz.dart';
 import 'dart:math';
 import 'dart:ui' as ui;
@@ -56,7 +57,7 @@ class _CreateQuiz extends State<CreateQuiz> {
       'choice4': choice4,
       'correctAnswer': corrAns,
       'revealAnswer': false,
-      'creationDate':creationDate
+      'creationDate': creationDate
     });
   }
 
@@ -77,142 +78,151 @@ class _CreateQuiz extends State<CreateQuiz> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Launch a quiz"),
-        ),
-        body: Center(
-          child: Column(children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('Write your question', textAlign: TextAlign.left),
-                  TextField(
-                    controller: questionController,
-                  ),
-                  SizedBox(height: 30),
-                  Text('Select good answer(s) :', textAlign: TextAlign.left),
-                ],
-              ),
+    return WillPopScope(
+        onWillPop: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Homepage()),
+          );
+          return false;
+        },
+        child: Scaffold(
+            appBar: AppBar(
+              title: const Text("Launch a quiz"),
             ),
-            Container(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    textDirection: ui.TextDirection.ltr,
+            body: Center(
+              child: Column(children: <Widget>[
+                Container(
+                  margin: EdgeInsets.all(25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        ElevatedButton(
-                          child: Text("1"),
-                          onPressed: null,
-                        ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb1,
-                          onChanged: (bool? valueCb1) {
-                            setState(() {
-                              this.valueCb1 = valueCb1!;
-                            });
-                          },
-                        ),
-                        ElevatedButton(
-                          child: Text("2"),
-                          onPressed: null,
-                        ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController2,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb2,
-                          onChanged: (bool? valueCb2) {
-                            setState(() {
-                              this.valueCb2 = valueCb2!;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
+                      Text('Write your question', textAlign: TextAlign.left),
+                      TextField(
+                        controller: questionController,
+                      ),
+                      SizedBox(height: 30),
+                      Text('Select good answer(s) :',
+                          textAlign: TextAlign.left),
+                    ],
                   ),
-                  Container(
-                    child: Row(
-                      children: <Widget>[
-                        ElevatedButton(
-                          child: Text("3"),
-                          onPressed: null,
+                ),
+                Container(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        textDirection: ui.TextDirection.ltr,
+                        children: <Widget>[
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              child: Text("1"),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 80,
+                                child: TextField(
+                                  controller: mcqController,
+                                  decoration:
+                                      new InputDecoration(hintText: "Choice"),
+                                )),
+                            Checkbox(
+                              value: this.valueCb1,
+                              onChanged: (bool? valueCb1) {
+                                setState(() {
+                                  this.valueCb1 = valueCb1!;
+                                });
+                              },
+                            ),
+                            ElevatedButton(
+                              child: Text("2"),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 80,
+                                child: TextField(
+                                  controller: mcqController2,
+                                  decoration:
+                                      new InputDecoration(hintText: "Choice"),
+                                )),
+                            Checkbox(
+                              value: this.valueCb2,
+                              onChanged: (bool? valueCb2) {
+                                setState(() {
+                                  this.valueCb2 = valueCb2!;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController3,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb3,
-                          onChanged: (bool? valueCb3) {
-                            setState(() {
-                              this.valueCb3 = valueCb3!;
-                            });
-                          },
+                      ),
+                      Container(
+                        child: Row(
+                          children: <Widget>[
+                            ElevatedButton(
+                              child: Text("3"),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 80,
+                                child: TextField(
+                                  controller: mcqController3,
+                                  decoration:
+                                      new InputDecoration(hintText: "Choice"),
+                                )),
+                            Checkbox(
+                              value: this.valueCb3,
+                              onChanged: (bool? valueCb3) {
+                                setState(() {
+                                  this.valueCb3 = valueCb3!;
+                                });
+                              },
+                            ),
+                            ElevatedButton(
+                              child: Text("4"),
+                              onPressed: null,
+                            ),
+                            SizedBox(
+                                width: 80,
+                                child: TextField(
+                                  controller: mcqController4,
+                                  decoration:
+                                      new InputDecoration(hintText: "Choice"),
+                                )),
+                            Checkbox(
+                              value: this.valueCb4,
+                              onChanged: (bool? valueCb4) {
+                                setState(() {
+                                  this.valueCb4 = valueCb4!;
+                                });
+                              },
+                            ),
+                          ],
                         ),
-                        ElevatedButton(
-                          child: Text("4"),
-                          onPressed: null,
-                        ),
-                        SizedBox(
-                            width: 80,
-                            child: TextField(
-                              controller: mcqController4,
-                              decoration:
-                                  new InputDecoration(hintText: "Choice"),
-                            )),
-                        Checkbox(
-                          value: this.valueCb4,
-                          onChanged: (bool? valueCb4) {
-                            setState(() {
-                              this.valueCb4 = valueCb4!;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
+                      ),
+                    ])),
+                Container(
+                  margin: EdgeInsets.all(20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      String corrAns = getCorrAns();
+                      addData(
+                          questionController.text,
+                          mcqController.text,
+                          mcqController2.text,
+                          mcqController3.text,
+                          mcqController4.text,
+                          corrAns);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => GenerateQuiz(codeId: pin)),
+                      );
+                    },
+                    child: const Text('Generate'),
                   ),
-                ])),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: ElevatedButton(
-                onPressed: () {
-                  String corrAns = getCorrAns();
-                  addData(
-                      questionController.text,
-                      mcqController.text,
-                      mcqController2.text,
-                      mcqController3.text,
-                      mcqController4.text,
-                      corrAns);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => GenerateQuiz(codeId: pin)),
-                  );
-                },
-                child: const Text('Generate'),
-              ),
-            ),
-          ]),
-        ));
+                ),
+              ]),
+            )));
   }
 }
