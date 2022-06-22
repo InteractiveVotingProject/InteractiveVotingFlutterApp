@@ -11,7 +11,7 @@ class ReadCodeAccess extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: Text('Quiz App'),
+        title: Text('Answering Quiz'),
       ),
       body: Center(
         child: Column(
