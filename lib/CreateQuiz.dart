@@ -84,7 +84,7 @@ class _CreateQuiz extends State<CreateQuiz> {
         body: Center(
           child: Column(children: <Widget>[
             Container(
-              margin: EdgeInsets.all(25),
+              margin: EdgeInsets.all(25),  
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[

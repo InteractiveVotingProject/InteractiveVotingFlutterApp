@@ -64,35 +64,26 @@ class Homepage extends StatelessWidget {
               ),
             ),
             Container(
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.all(25),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomepageAccess()),
-                  );
-                },
-                child: Text(
-                  'ACCESSIBILITY MODE',
-                  style: TextStyle(fontSize: 25),
-                  textAlign: TextAlign.center,
-                ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red),
-                  padding:
-                      MaterialStateProperty.all(const EdgeInsets.all(25)),
-                ),
-              )),
-            Container(
-              margin: EdgeInsets.all(25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('Session ID is ${code}', textAlign: TextAlign.left),
-                ],
-              ),
-            ),
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.all(25),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomepageAccess()),
+                    );
+                  },
+                  child: Text(
+                    'ACCESSIBILITY MODE',
+                    style: TextStyle(fontSize: 25),
+                    textAlign: TextAlign.center,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                    padding:
+                        MaterialStateProperty.all(const EdgeInsets.all(25)),
+                  ),
+                )),
           ]))),
     );
   }
