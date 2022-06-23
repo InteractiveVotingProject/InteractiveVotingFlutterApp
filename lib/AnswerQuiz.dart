@@ -231,6 +231,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
                   'Please enter pin correctly and \nreturn to Answer Quiz  Page\n'),
             if (val != 'null')
               Container(
+                  margin: EdgeInsets.all(25),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       textDirection: TextDirection.ltr,

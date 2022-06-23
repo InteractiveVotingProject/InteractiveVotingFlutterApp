@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:interactive_voting_flutter_app/AnswerQuiz.dart';
 import 'package:interactive_voting_flutter_app/Homepage.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -60,7 +61,7 @@ class _QRReader extends State<QRReader> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      Homepage(code: result!.code)),
+                                       AnswerQuiz(quizId: result!.code.toString())),
                             );
                           },
                           child: const Text('Access Quizz'),

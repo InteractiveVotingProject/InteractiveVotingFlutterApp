@@ -78,27 +78,6 @@ class _CreateQuiz extends State<CreateQuiz> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Launch a quiz"),
-        ),
-        body: Center(
-          child: Column(children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(25),  
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('Write your question', textAlign: TextAlign.left),
-                  TextField(
-                    controller: questionController,
-                  ),
-                  SizedBox(height: 30),
-                  Text('Select good answer(s) :', textAlign: TextAlign.left),
-                ],
-              ),
-=======
     return WillPopScope(
         onWillPop: () async {
           Navigator.push(
@@ -110,7 +89,6 @@ class _CreateQuiz extends State<CreateQuiz> {
         child: Scaffold(
             appBar: AppBar(
               title: const Text("Launch a quiz"),
->>>>>>> 5f64a517f83640df33350b5977ddc91734738314
             ),
             body: Center(
               child: Column(children: <Widget>[

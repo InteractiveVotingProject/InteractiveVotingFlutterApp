@@ -84,15 +84,6 @@ class Homepage extends StatelessWidget {
                         MaterialStateProperty.all(const EdgeInsets.all(25)),
                   ),
                 )),
-            Container(
-              margin: EdgeInsets.all(25),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Text('Session ID is ${code}', textAlign: TextAlign.left),
-                ],
-              ),
-            ),
           ]))),
     );
   }
