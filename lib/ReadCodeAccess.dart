@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:interactive_voting_flutter_app/AnswerQuizAccess.dart';
 import 'QRReader.dart';
 import 'AnswerQuiz.dart';
 
-class ReadCode extends StatelessWidget {
-  ReadCode({Key? key}) : super(key: key);
+class ReadCodeAccess extends StatelessWidget {
+  ReadCodeAccess({Key? key}) : super(key: key);
   final otpController = TextEditingController();
 
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class ReadCode extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const QRReader()),
                   );
                 },
-                child: const Text('Use QR Reader'),
+                child: const Text('Use QR Reader',
+                style: TextStyle(fontSize: 30.0)),
               ),
             ),
             Container(
@@ -32,10 +34,12 @@ class ReadCode extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text('Enter code manually', textAlign: TextAlign.left),
+                  Text('Enter code manually', textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 30.0)),
                   TextField(
                     controller: otpController,
                     decoration: InputDecoration(hintText: 'Optional'),
+                    style: TextStyle(fontSize: 30.0)
                   ),
                   SizedBox(height: 30),
                 ],
@@ -49,10 +53,11 @@ class ReadCode extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            AnswerQuiz(quizId: otpController.text)),
+                            AnswerQuizAccess(quizId: otpController.text)),
                   );
                 },
-                child: const Text('Go to Quiz'),
+                child: const Text('Go to Quiz',
+                style: TextStyle(fontSize: 30.0)),
               ),
             )
           ],

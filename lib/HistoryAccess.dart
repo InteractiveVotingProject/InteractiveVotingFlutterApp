@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:interactive_voting_flutter_app/ReadCodeAccess.dart';
 import 'dart:io';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:interactive_voting_flutter_app/ReadCode.dart';
 import 'package:open_file/open_file.dart';
 
-class History extends StatefulWidget {
+class HistoryAccess extends StatefulWidget {
   //final String quizId;
-  const History({Key? key}) : super(key: key);
+  const HistoryAccess({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _History();
+  State<StatefulWidget> createState() => _HistoryAccess();
 }
 
-class _History extends State<History> {
+class _HistoryAccess extends State<HistoryAccess> {
   final answerController = TextEditingController();
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
@@ -121,7 +122,7 @@ class _History extends State<History> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('History'),
+        title: Text('History', style: TextStyle(fontSize: 25.0)),
       ),
       body: Center(
         child: Column(
@@ -130,23 +131,23 @@ class _History extends State<History> {
               margin: EdgeInsets.all(25),
             ),
             Text(
-              "History for previously answered question(s) on this device: " +
-                  '\n\n' +
+              " Download the history for previously answered question(s) on this device: " +
                   fetchHis().toString().substring(0, 0),
+              style: TextStyle(fontSize: 25.0),
               textAlign: TextAlign.left,
             ),
-            if (val != "")
-              Container(
-                child: Text(
-                  '\n\n' + val + '\n',
-                  textAlign: TextAlign.left,
-                ),
-              ),
+            // if (val != "")
+            //   Container(
+            //     child: Text('\n\n' + val + '\n',
+            //         textAlign: TextAlign.left,
+            //         style: TextStyle(fontSize: 25.0)),
+            //   ),
             if (val == "")
               Container(
                 child: Text(
                     'The device has not been used to answer questions earlier.\n\n' +
-                        'The previous participation is more than 2 years old and hence removed\n'),
+                        'The previous participation is more than 2 years old and hence removed\n',
+                    style: TextStyle(fontSize: 25.0)),
               ),
             Container(
               margin: EdgeInsets.all(25),
@@ -155,7 +156,8 @@ class _History extends State<History> {
                   // fetchHis();
                   downloadFile(val);
                 },
-                child: const Text('Download History'),
+                child: const Text('Download History',
+                style: TextStyle(fontSize: 25.0)),
               ),
             ),
             Container(
@@ -163,11 +165,12 @@ class _History extends State<History> {
               child: ElevatedButton(
                 child: Text(
                   'Visit Quiz with Pin',
+                  style: TextStyle(fontSize: 25.0)
                 ),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ReadCode()),
+                    MaterialPageRoute(builder: (context) => ReadCodeAccess()),
                   );
                 },
               ),
@@ -179,7 +182,8 @@ class _History extends State<History> {
                   delAnswers();
                   fetchHis();
                 },
-                child: const Text('Clean Up Data more than 2 years'),
+                child: const Text('Clean Up Data\n more than 2 years',
+                style: TextStyle(fontSize: 25.0)),
               ),
             ),
           ],

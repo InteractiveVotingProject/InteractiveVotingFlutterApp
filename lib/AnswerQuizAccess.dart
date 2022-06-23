@@ -6,16 +6,16 @@ import 'package:interactive_voting_flutter_app/ReadCode.dart';
 import 'dart:io';
 import 'package:pie_chart/pie_chart.dart';
 
-class AnswerQuiz extends StatefulWidget {
+class AnswerQuizAccess extends StatefulWidget {
   final String quizId;
 
-  const AnswerQuiz({Key? key, required this.quizId}) : super(key: key);
+  const AnswerQuizAccess({Key? key, required this.quizId}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _AnswerQuiz(this.quizId);
+  State<StatefulWidget> createState() => _AnswerQuizAccess(this.quizId);
 }
 
-class _AnswerQuiz extends State<AnswerQuiz> {
+class _AnswerQuizAccess extends State<AnswerQuizAccess> {
   final String quizId;
   final answerController = TextEditingController();
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
@@ -39,7 +39,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
   String rans = "";
   String cans = "";
 
-  _AnswerQuiz(this.quizId);
+  _AnswerQuizAccess(this.quizId);
 
   fetchQuestion(String qId) {
     databaseRef
@@ -121,7 +121,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
       });
     }
 
-    return val + "\n";
+    return val;
   }
 
   fetchAnswers(String qId, String rans) {
@@ -159,7 +159,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
           dataMap = <String, double>{"No Answers Yet": 0};
         }
 
-        print("its dataMap for PIe chart");
+        print("its dataMap for Pie chart");
         print(dataMap);
       });
     });
@@ -217,99 +217,123 @@ class _AnswerQuiz extends State<AnswerQuiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Question: ${quizId}'),
+        title: Text('Question: $quizId', style: TextStyle(fontSize: 25.0)),
       ),
       body: Center(
         child: Column(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(25),
+              margin: EdgeInsets.all(10),
             ),
-            Text("Question : " + fetchQuestion(quizId) + '\n'),
+            Text("Question : " + fetchQuestion(quizId),
+                style: TextStyle(fontSize: 25.0)),
             if (val == 'null')
               Text(
-                  'Please enter pin correctly and \nreturn to Answer Quiz  Page\n'),
+                  'Please enter pin correctly and \nreturn to Answer Quiz  Page\n',
+                  style: TextStyle(fontSize: 25.0)),
             if (val != 'null')
               Container(
+                  margin: EdgeInsets.all(25),
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       textDirection: TextDirection.ltr,
                       children: <Widget>[
-                    Container(
-                      child: Row(
-                        children: <Widget>[
-                          ElevatedButton(
-                            child: Text("1. " + ch1),
-                            onPressed: null,
+                        Container(
+                          child: Row(
+                            children: <Widget>[
+                              ElevatedButton(
+                                child: Text("1. " + ch1,
+                                    style: TextStyle(fontSize: 25.0)),
+                                onPressed: null,
+                              ),
+                              Checkbox(
+                                value: this.valueCb1,
+                                onChanged: (bool? valueCb1) {
+                                  setState(() {
+                                    this.valueCb1 = valueCb1!;
+                                  });
+                                },
+                              ),
+                            ],
                           ),
-                          Checkbox(
-                            value: this.valueCb1,
-                            onChanged: (bool? valueCb1) {
-                              setState(() {
-                                this.valueCb1 = valueCb1!;
-                              });
-                            },
+                        ),
+                        if (val != 'null')
+                          Container(
+                            child: Row(
+                              children: <Widget>[
+                                ElevatedButton(
+                                  child: Text("2. " + ch2,
+                                      style: TextStyle(fontSize: 25.0)),
+                                  onPressed: null,
+                                ),
+                                Checkbox(
+                                  value: this.valueCb2,
+                                  onChanged: (bool? valueCb2) {
+                                    setState(() {
+                                      this.valueCb2 = valueCb2!;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                          ElevatedButton(
-                            child: Text("2. " + ch2),
-                            onPressed: null,
+                        if (val != 'null')
+                          Container(
+                            child: Row(
+                              children: <Widget>[
+                                ElevatedButton(
+                                  child: Text("3. " + ch3,
+                                      style: TextStyle(fontSize: 25.0)),
+                                  onPressed: null,
+                                ),
+                                Checkbox(
+                                  value: this.valueCb3,
+                                  onChanged: (bool? valueCb3) {
+                                    setState(() {
+                                      this.valueCb3 = valueCb3!;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                          Checkbox(
-                            value: this.valueCb2,
-                            onChanged: (bool? valueCb2) {
-                              setState(() {
-                                this.valueCb2 = valueCb2!;
-                              });
-                            },
+                        if (val != 'null')
+                          Container(
+                            child: Row(
+                              children: <Widget>[
+                                ElevatedButton(
+                                  child: Text("4. " + ch4,
+                                      style: TextStyle(fontSize: 25.0)),
+                                  onPressed: null,
+                                ),
+                                Checkbox(
+                                  value: this.valueCb4,
+                                  onChanged: (bool? valueCb4) {
+                                    setState(() {
+                                      this.valueCb4 = valueCb4!;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        children: <Widget>[
-                          ElevatedButton(
-                            child: Text("3. " + ch3),
-                            onPressed: null,
-                          ),
-                          Checkbox(
-                            value: this.valueCb3,
-                            onChanged: (bool? valueCb3) {
-                              setState(() {
-                                this.valueCb3 = valueCb3!;
-                              });
-                            },
-                          ),
-                          ElevatedButton(
-                            child: Text("4. " + ch4),
-                            onPressed: null,
-                          ),
-                          Checkbox(
-                            value: this.valueCb4,
-                            onChanged: (bool? valueCb4) {
-                              setState(() {
-                                this.valueCb4 = valueCb4!;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ])),
+                      ])),
             if (val != 'null')
               Container(
-                margin: EdgeInsets.all(25),
+                margin: EdgeInsets.all(5),
                 child: ElevatedButton(
                   onPressed: () {
                     addAnswer(quizId, getAnswers());
                     fetchAnswers(quizId, rans);
                   },
-                  child: const Text('Submit Answer'),
+                  child: const Text('Submit Answer',
+                      style: TextStyle(fontSize: 25.0)),
                 ),
               ),
             if (val != 'null')
               Container(
-                child: Text('The correct answer(s) : ' + cans + '\n'),
+                child: Text('The correct answer(s) : ' + cans + '\n',
+                    style: TextStyle(fontSize: 25.0)),
               ),
             if (val != 'null')
               Container(
@@ -327,7 +351,7 @@ class _AnswerQuiz extends State<AnswerQuiz> {
                 child: OutlinedButton(
                   child: Text(
                     'Answer',
-                    style: TextStyle(fontSize: 20.0),
+                    style: TextStyle(fontSize: 25.0),
                   ),
                   onPressed: () {
                     Navigator.push(

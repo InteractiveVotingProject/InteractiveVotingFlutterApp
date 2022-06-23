@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:interactive_voting_flutter_app/CreateQuiz.dart';
+import 'package:interactive_voting_flutter_app/CreateQuizAccess.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-class ShowChart extends StatefulWidget {
+class ShowChartAccess extends StatefulWidget {
   final String codeId;
 
-  const ShowChart({Key? key, required this.codeId}) : super(key: key);
+  const ShowChartAccess({Key? key, required this.codeId}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _ShowChart(this.codeId);
+  State<StatefulWidget> createState() => _ShowChartAccess(this.codeId);
 }
 
-class _ShowChart extends State<ShowChart> {
+class _ShowChartAccess extends State<ShowChartAccess> {
   final String codeId;
   final DatabaseReference databaseRef = FirebaseDatabase.instance.reference();
 
@@ -36,7 +37,7 @@ class _ShowChart extends State<ShowChart> {
   String rans = "";
   String cans = "";
 
-  _ShowChart(this.codeId);
+  _ShowChartAccess(this.codeId);
 
   fetchAnswers(String qId) {
     var ans = [];
@@ -149,7 +150,7 @@ class _ShowChart extends State<ShowChart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Poll ${codeId}'),
+        title: Text('Poll ${codeId}', style: TextStyle(fontSize: 25.0)),
       ),
       body: Center(
         child: Column(
@@ -157,26 +158,31 @@ class _ShowChart extends State<ShowChart> {
             Container(
               margin: EdgeInsets.all(25),
             ),
-            Text("Question : " + fetchQuestion(codeId) + '\n'),
-            Text("Choices : " +
-                ch1 +
-                ';' +
-                ch2 +
-                ';' +
-                ch3 +
-                ';' +
-                ch4 +
-                ';' +
-                '\n'),
-            Text("Correct Annwer(s) : " + cans + '\n'),
-            Text("The polls are : " + fetchAnswers(codeId) + '\n'),
+            Text("Question : " + fetchQuestion(codeId),
+                style: TextStyle(fontSize: 25.0)),
+            Text(
+                "Choices : " +
+                    ch1 +
+                    ';' +
+                    ch2 +
+                    ';' +
+                    ch3 +
+                    ';' +
+                    ch4 +
+                    ';' +
+                    '\n',
+                style: TextStyle(fontSize: 25.0)),
+            Text("Correct Annwer(s) : " + cans + '\n',
+                style: TextStyle(fontSize: 25.0)),
+            Text("The polls are : " + fetchAnswers(codeId),
+                style: TextStyle(fontSize: 25.0)),
             Container(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     textDirection: TextDirection.ltr,
                     children: <Widget>[])),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 50),
+              padding: EdgeInsets.symmetric(horizontal: 40),
               child: PieChart(
                 dataMap: dataMap,
                 chartType: ChartType.ring,
@@ -190,21 +196,21 @@ class _ShowChart extends State<ShowChart> {
                 onPressed: () {
                   databaseRef.child(codeId).update({"revealAnswer": true});
                 },
-                child: const Text('Reveal Answer'),
+                child: const Text('Reveal Answer',
+                    style: TextStyle(fontSize: 25.0)),
               ),
             ),
             Container(
               margin: EdgeInsets.all(25),
-              child: OutlinedButton(
+              child: ElevatedButton(
                 child: Text(
                   "Launch a quiz",
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 25.0),
                 ),
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CreateQuiz()),
-                    //MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => CreateQuizAccess()),
                   );
                 },
               ),
